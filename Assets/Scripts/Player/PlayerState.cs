@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class PlayerState : ScriptableObject
 {
-	//that refers to unlocked abilities
-	public List<BasicAbilityData> Abilities;
+	//these three refer to unlocked abilities
+	public List<EntitySpellData> EntititySpells;
+	public List<PlayerSpellData> PlayerSpells;
+	public List<BuffData> BuffSpells;
 	public List<TempBuffData> Buffs;
 	public List<EffectActive> Effects;
 	public float Health;
@@ -30,6 +32,7 @@ public class PlayerState : ScriptableObject
 			if(effect.DurationCurrent <= 0)
 			{
 				effect.Times -= 1;
+				effect.DurationCurrent=effect.Duration;
 				if(effect.Times <= 0)
 				{
 					switch(effect.VariableFinal)
