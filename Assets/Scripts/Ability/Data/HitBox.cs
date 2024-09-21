@@ -3,6 +3,7 @@ using UnityEngine;
 public class HitBox
 {
 	public HitBoxType Type;
+	//rename if needed
 	public int Radius_or_Height;
 	public int Width;
 	// Start is called before the first frame update

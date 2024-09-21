@@ -21,6 +21,7 @@ public enum SpellType
 	FromPlayer = 0,
 	FromEntity = 1,
 }
+//that's just for now, then we can add other types
 public enum DamageType
 {
 	Pure = 0,

@@ -6,7 +6,7 @@ public class Effect
 	public int ValueCurrent;
 	public Variable VariableFinal;
 	public int ValueFinal;
-	public int Duration;
+	public int Duration;//duration is time in seconds after which times are reduces and change applied
 	public int Times;
 	// Start is called before the first frame update
 	void Start()
