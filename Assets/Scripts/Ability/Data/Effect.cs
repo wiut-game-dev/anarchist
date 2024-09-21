@@ -23,9 +23,11 @@ public class Effect
 public enum Variable
 {
 	Health = 0,
-	Mana =   1,
-	ManaRecovery = 2,
-	Attack = 3,
-	AttackSpeed =  4,
-	Speed =  5,
+	MaxHealth=1,
+	Mana =   2,
+	MaxMana=3,
+	ManaRecovery = 4,
+	Attack = 5,
+	AttackSpeed =  6,
+	Speed =  7,
 }

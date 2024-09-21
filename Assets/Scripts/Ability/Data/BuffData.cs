@@ -1,9 +1,7 @@
 ﻿public class BuffData : BasicAbilityData
 {
-	public BuffType Type;
 	public Variable Variable;
 	public int Value;
-	public int? Duration;//if type is permanent duration leaves null
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -15,9 +13,4 @@
 	{
 
 	}
-}
-public enum BuffType
-{
-	Permanent = 0,
-	Temporary = 1,
 }
