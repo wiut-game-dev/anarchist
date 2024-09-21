@@ -1,9 +1,6 @@
-public class SpellData : BasicAbilityData
+public class BasicSpellData : BasicAbilityData
 {
-	public SpellType Type;
 	public DamageType DamageType = DamageType.Pure;
-	public int? Lifetime = null;
-	public int? TravelDistance = null;
 	public int Damage;
 	public Effect Effect;
 	public HitBox HitBox;
