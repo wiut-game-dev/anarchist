@@ -1,10 +1,9 @@
-﻿using UnityEngine;
-
-public class BuffData : ScriptableObject
+﻿public class BuffData : BasicAbilityData
 {
 	public BuffType Type;
 	public Variable Variable;
 	public int Value;
+	public int? Duration;
 	// Start is called before the first frame update
 	void Start()
 	{
