@@ -26,6 +26,7 @@ public class PlayerState : ScriptableObject
 
 	void Update()
 	{
+		//you can basically copy this part for enemies
 		foreach(var effect in Effects)
 		{
 			effect.DurationCurrent -= Time.deltaTime;
@@ -94,6 +95,7 @@ public class PlayerState : ScriptableObject
 				}
 			}
 		}
+		//yep, above one (but removing stuff like mana and maxhealth)
 		foreach(var buff in Buffs)
 		{
 			buff.Duration -= Time.deltaTime;
