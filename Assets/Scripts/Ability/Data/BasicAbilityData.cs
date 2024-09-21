@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BasicAbilityData : ScriptableObject
+public class BasicAbilityData 
 {
 	public int Cost;
 	// Start is called before the first frame update

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HitBox : ScriptableObject
+public class HitBox
 {
 	public HitBoxType Type;
 	public int Radius_or_Height;

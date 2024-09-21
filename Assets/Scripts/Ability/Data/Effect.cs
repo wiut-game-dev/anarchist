@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Effect : ScriptableObject
+public class Effect 
 {
 	public Variable VariableCurrent;
 	public int ValueCurrent;
