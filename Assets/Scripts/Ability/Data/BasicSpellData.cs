@@ -1,4 +1,4 @@
-public class BasicSpellData : BasicAbilityData
+public class PlayerSpellData : BasicAbilityData
 {
 	public DamageType DamageType = DamageType.Pure;
 	public int Damage;
