@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemyState : ScriptableObject
 {
     public bool LineOfSight;
-    
     public float Health;
     public float MaxHealth;
     public float Cooldown;
@@ -16,7 +15,7 @@ public class EnemyState : ScriptableObject
     public float Multiplier;
     public float Speed;
     public float SightDistance;
-    
+    public List<Effect> EffectOnEnemies;
     public Vector2 moveDirection;
 
     
@@ -30,5 +29,7 @@ public class EnemyState : ScriptableObject
     {
         
     }
+
+    
 
 }
