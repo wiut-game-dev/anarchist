@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Player State")]
 public class PlayerState : ScriptableObject
 {
 	//these three refer to unlocked abilities
