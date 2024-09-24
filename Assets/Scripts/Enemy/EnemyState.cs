@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy State")]
-public class EnemyState : ScriptableObject
+
+public class EnemyState : MonoBehaviour
 {
     public bool LineOfSight;
     public float Health;
