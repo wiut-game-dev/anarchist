@@ -15,7 +15,7 @@ public class EnemyState : MonoBehaviour
     public float Multiplier;
     public float Speed;
     public float SightDistance;
-    public List<Effect> EffectOnEnemies;
+    public List<EffectActive> EffectOnEnemies;
     public Vector2 moveDirection;
 
     
