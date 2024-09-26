@@ -19,21 +19,5 @@ public class T_HitBoxCreate : MonoBehaviour
 			HitBox.transform.localScale = new Vector3(size, size, size);
 			Instantiate(HitBox, gameObject.transform.position, Quaternion.identity);
 		}
-		if(Input.GetKey(KeyCode.W))
-		{
-			gameObject.transform.position += Vector3.up * Time.deltaTime * speed;
-		}
-		if(Input.GetKey(KeyCode.S))
-		{
-			gameObject.transform.position += Vector3.down * Time.deltaTime * speed;
-		}
-		if(Input.GetKey(KeyCode.A))
-		{
-			gameObject.transform.position += Vector3.left * Time.deltaTime * speed;
-		}
-		if(Input.GetKey(KeyCode.D))
-		{
-			gameObject.transform.position += Vector3.right * Time.deltaTime * speed;
-		}
 	}
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class T_EnemyCreate : MonoBehaviour
 {
-	public float duration;
+	public float duration=5;
 	public float currentDuration=0;
 	public GameObject Enemy;
 	private void Start()

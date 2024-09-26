@@ -8,7 +8,7 @@ public class PlayerState : ScriptableObject
 {
 	//these three refer to unlocked abilities
 	public List<EntitySpellData> EntititySpells;
-	public List<PlayerSpellData> PlayerSpells;
+	public List<BasicSpellData> PlayerSpells;
 	public List<BuffData> BuffSpells;
 	public List<TempBuffData> Buffs;
 	public List<EffectActive> Effects;

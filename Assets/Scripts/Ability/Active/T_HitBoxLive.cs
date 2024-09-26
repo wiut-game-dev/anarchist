@@ -9,9 +9,12 @@ public class T_HitBoxLive : MonoBehaviour
 
 	}
 
-	void OnTriggerEnter()
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("Touch!");
+		if(other.gameObject.name != "Player")
+		{
+			Destroy(other.gameObject);
+		}
 	}
 	// Update is called once per frame
 	void Update()
