@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class EnemyVisibility : MonoBehaviour
 {
+    private GameObject player;
     public Transform target;
     public float maxDistance = 10f;
 
@@ -15,7 +16,8 @@ public class EnemyVisibility : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player=GameObject.FindWithTag("Player");
+        target = player.GetComponent<Transform>();
     }
     // Update is called once per frame
     void Update()

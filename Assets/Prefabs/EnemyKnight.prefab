@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6485332560882145312}
   - component: {fileID: 8596240227526437468}
-  - component: {fileID: 8340811805327586533}
   - component: {fileID: 1322823792972621094}
   - component: {fileID: 6847492048716444388}
+  - component: {fileID: -9121777910653827080}
   - component: {fileID: 5796913766459846950}
   - component: {fileID: 1541796998218455401}
   m_Layer: 0
@@ -89,29 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8340811805327586533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5708799507150202345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9a8d7bb4600420428b5a70429ae3da2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LineOfSight: 0
-  Health: 0
-  MaxHealth: 0
-  Cooldown: 0
-  Damage: 0
-  AttackSpeed: 0
-  AttackRange: 0
-  Multiplier: 0
-  Speed: 100
-  SightDistance: 0
-  moveDirection: {x: 0, y: 0}
 --- !u!114 &1322823792972621094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyVisibility: {fileID: 6847492048716444388}
-  state: {fileID: 8340811805327586533}
+  state: {fileID: -9121777910653827080}
   rb: {fileID: 1541796998218455401}
 --- !u!114 &6847492048716444388
 MonoBehaviour:
@@ -136,12 +113,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 5708799507150202345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58492aeee3041514abc2fc77d519c145, type: 3}
+  m_Script: {fileID: 11500000, guid: ac08ca14e2cfae94e8f89e6f7fc503d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  maxDistance: 100
-  angle: 45
+  maxDistance: 10
+  angle: 0
+--- !u!114 &-9121777910653827080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5708799507150202345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad94e96adaa71440ac44d493e0e2e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LineOfSight: 0
+  Health: 0
+  MaxHealth: 0
+  Cooldown: 0
+  Damage: 0
+  AttackSpeed: 0
+  AttackRange: 0
+  Multiplier: 0
+  Speed: 100
+  SightDistance: 100
+  moveDirection: {x: 0, y: 0}
 --- !u!61 &5796913766459846950
 BoxCollider2D:
   m_ObjectHideFlags: 0
