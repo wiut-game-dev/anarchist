@@ -3,6 +3,7 @@ using UnityEngine;
 public class T_HitBoxLive : MonoBehaviour
 {
 	public float lifetime=0.5f;
+	public float damage = 50;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -11,9 +12,14 @@ public class T_HitBoxLive : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.gameObject.name != "Player")
+		try
 		{
-			Destroy(other.gameObject);
+			var state = other.gameObject.GetComponent<EnemyState>();
+			state.Health -= damage;
+		}
+		catch
+		{
+
 		}
 	}
 	// Update is called once per frame

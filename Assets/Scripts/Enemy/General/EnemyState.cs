@@ -27,6 +27,9 @@ public class EnemyState : MonoBehaviour
 
 	void Update()
 	{
-		
+		if (Health <= 0)
+		{
+			Destroy(gameObject);
+		}
 	}
 }
