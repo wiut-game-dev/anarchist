@@ -7,8 +7,7 @@ using UnityEngine;
 public class PlayerState : ScriptableObject
 {
 	//these three refer to unlocked abilities
-	public List<EntitySpellData> EntititySpells;
-	public List<BasicSpellData> PlayerSpells;
+	public List<SpellData> PlayerSpells;
 	public List<BuffData> BuffSpells;
 	public List<TempBuffData> Buffs;
 	public List<EffectActive> Effects;

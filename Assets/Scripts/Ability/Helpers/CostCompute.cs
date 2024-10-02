@@ -5,9 +5,9 @@ using UnityEngine;
 public class CostCompute : ScriptableObject
 {
 	public PlayerState state;
-	public int Compute(BasicSpellData data)
+	public int Compute(SpellData data)
 	{
-		if(data is EntitySpellData)
+		if(data is SpellData)
 			return -1;
 		double cost = 0;
 		#region Area
@@ -30,12 +30,7 @@ public class CostCompute : ScriptableObject
 		effcost *= HitBoxArea * 0.5f;
 		#endregion Effect
 		cost += effcost;
-		return (int)Math.Round(cost);
-	}
-
-	public int Compute(EntitySpellData data)
-	{
-		return Compute(data) * data.Lifetime;
+		return (int)(Math.Round(cost*2*Math.Sqrt(data.Lifetime)));
 	}
 
 	public int Compute(BuffData data)
@@ -57,7 +52,7 @@ public class CostCompute : ScriptableObject
 				baseval = state.AttackSpeed;
 				break;
 			case Variable.ManaRecovery:
-				baseval = state.ManaRecovery;
+				baseval = state.ManaRecovery/2f;
 				break;
 			case Variable.MaxHealth:
 				baseval = state.MaxHealth / 3f;

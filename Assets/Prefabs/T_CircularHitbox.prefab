@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 272480695968423786}
   - component: {fileID: -2380194095815189326}
   m_Layer: 0
-  m_Name: CircularHitbox
+  m_Name: T_CircularHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,9 +1,14 @@
-public class BasicSpellData : BasicAbilityData
+public class SpellData : BasicAbilityData
 {
 	public DamageType DamageType = DamageType.Pure;
 	public int Damage;
 	public Effect Effect;
 	public HitBox HitBox;
+	public string ImagePath;
+	public string SoundPath;
+	//so it basically creates an object from prefab in a shape of a hitbox and applies damage on touch
+	public float Lifetime;
+	public float TravelDistance;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -16,12 +21,6 @@ public class BasicSpellData : BasicAbilityData
 
 	}
 }
-public enum SpellType
-{
-	FromPlayer = 0,
-	FromEntity = 1,
-}
-//that's just for now, then we can add other types
 public enum DamageType
 {
 	Pure = 0,
