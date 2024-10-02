@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemyState : MonoBehaviour
 {
-	public bool LineOfSight;
+	public bool LineOfSight; //what is this?
 	public float Health;
 	public float MaxHealth;
 	public float Cooldown;

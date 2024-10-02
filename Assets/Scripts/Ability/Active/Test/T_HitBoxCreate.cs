@@ -5,11 +5,10 @@ public class T_HitBoxCreate : MonoBehaviour
 	public GameObject HitBox;
 	public float size = 1f;
 	public PlayerState state;
-	public float speed;
 	// Start is called before the first frame update
 	void Start()
 	{
-		speed = state.Speed;
+
 	}
 
 	// Update is called once per frame

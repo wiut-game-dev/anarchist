@@ -5,96 +5,40 @@ using UnityEditor;
 
 public class EnemyVisibility : MonoBehaviour
 {
-    private GameObject player;
-    public Transform target;
-    public float maxDistance = 10f;
-
+    public GameObject targetPlayer;
+    EnemyState state;
+    KnightEnemyBehaviour knight;
+        
     [Range(0f, 360f)]
     public float angle;
 
-    public bool targetIsVisible { get; private set; }
+    public bool targetIsVisible = false; 
 
-    private void Start()
+    void Start()
     {
-        player=GameObject.FindWithTag("Player");
-        target = player.GetComponent<Transform>();
+        state = GetComponent<EnemyState>();
     }
-    // Update is called once per frame
+
     void Update()
     {
-        targetIsVisible = CheckVisibility();
+        ICanSee();
     }
 
-    /*public bool CheckVisibilityToPoint(Vector3 worldPoint)
+
+    public void ICanSee()
     {
-        var directionToTarget = worldPoint - transform.position;
-
-        var degreesToTarget = Vector2.Angle(transform.forward, directionToTarget);
-
-        var withinArc = degreesToTarget < (angle/2);
-
-        if (withinArc == false)
-        {
-            return false;
-        }
-
-        var distanceToTarget = directionToTarget.magnitude;
-        var rayDistance = Mathf.Min(maxDistance, distanceToTarget);
-
-        var ray = new Ray(transform.position, directionToTarget);
-
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit, rayDistance))
-        {
-            if(hit.collider.transform == target)
-            {
-                return true;
-            }
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }*/
-
-    public bool CheckVisibility()
-    {
-        var directionToTarget = target.position - transform.position;
-
-        var degreesToTarget =  Vector2.Angle(transform.forward, directionToTarget);
-
-        var withinArc = degreesToTarget < (angle/2);
-
-        if (withinArc == false)
-        {
-            return false;
-        }
         
-        var distanceToTarget = directionToTarget.magnitude;
-
-        var rayDistance = Mathf.Min(maxDistance, distanceToTarget);
-
-        var ray = new Ray(transform.position, directionToTarget);
-
-        RaycastHit hit;
-
-        var canSee = false;
-
-        if(Physics.Raycast(ray, out hit, rayDistance))
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, targetPlayer.transform.position - this.transform.position, state.SightDistance);
+        print(hit.collider);
+        if(hit.collider.gameObject == targetPlayer)
         {
-            if(hit.collider.transform == target)
-            {
-                canSee = true;
-            }
-            Debug.DrawLine(transform.position, hit.point);
-
+            targetIsVisible = true;
+            Debug.DrawLine(transform.position, targetPlayer.transform.position, Color.green);
         }
         else
         {
-            Debug.DrawLine(transform.position, directionToTarget.normalized * rayDistance);
+            Debug.DrawLine(transform.position, targetPlayer.transform.position, Color.red);
         }
-        return canSee;
-    }
+       
+    } 
 }

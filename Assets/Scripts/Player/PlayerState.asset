@@ -19,4 +19,4 @@ MonoBehaviour:
   ManaRecovery: 0
   Attack: 0
   AttackSpeed: 0
-  Speed: 100
+  Speed: 500
