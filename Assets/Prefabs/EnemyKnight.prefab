@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac08ca14e2cfae94e8f89e6f7fc503d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlayer: {fileID: 3801533293520527020, guid: c415821d68ea7fd42a035953f8adcf45, type: 3}
+  targetPlayer: {fileID: 0}
   angle: 180
   targetIsVisible: 0
 --- !u!114 &-9121777910653827080
@@ -140,7 +140,7 @@ MonoBehaviour:
   AttackRange: 0
   Multiplier: 0
   Speed: 2
-  SightDistance: 100
+  SightDistance: 10
   moveDirection: {x: 0, y: 0}
 --- !u!61 &5796913766459846950
 BoxCollider2D:

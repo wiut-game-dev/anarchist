@@ -23,11 +23,4 @@ public class PlayerMovement : MonoBehaviour
 		movement.Normalize();
 		rb.velocity = new Vector2(movement.x * state.Speed * Time.fixedDeltaTime, movement.y * state.Speed * Time.fixedDeltaTime);
 	}
-
-	private void OnTriggerStay2D(Collider2D other)
-	{
-		Debug.Log("AAAAAAA");
-	}
-
-
 }
