@@ -1,6 +1,8 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 
-public class Effect 
+public class Effect
 {
 	public Variable VariableCurrent;
 	public int ValueCurrent;
@@ -9,25 +11,39 @@ public class Effect
 	public int Duration;//duration is time in seconds after which times are reduces and change applied
 	public int Times;
 	// Start is called before the first frame update
-	void Start()
+	public Effect(Effect effect)
 	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
+		VariableCurrent = effect.VariableCurrent;
+		ValueCurrent = effect.ValueCurrent;
+		VariableFinal = effect.VariableFinal;
+		ValueFinal = effect.ValueFinal;
+		Duration = effect.Duration;
+		Times = effect.Times;
 	}
 }
 public enum Variable
 {
 	Health = 0,
-	MaxHealth=1,
-	Mana =   2,
-	MaxMana=3,
+	MaxHealth = 1,
+	Mana = 2,
+	MaxMana = 3,
 	ManaRecovery = 4,
 	Attack = 5,
-	AttackSpeed =  6,
-	Speed =  7,
+	AttackSpeed = 6,
+	Speed = 7,
+	Knockback = 8, //can be positive or negative
+}
+class EffectEqualityComparer: IEqualityComparer<Effect>
+{
+	public bool Equals(Effect x, Effect y)
+	{
+		if(x == null || y == null)
+			return false;
+		return(x.Duration==y.Duration&&x.VariableCurrent==y.VariableCurrent&&x.VariableFinal==y.VariableFinal&&x.ValueCurrent==y.ValueCurrent&&x.ValueFinal==y.ValueFinal);
+	}
+
+	public int GetHashCode(Effect obj)
+	{
+		return obj.GetHashCode();
+	}
 }
