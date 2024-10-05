@@ -2,8 +2,10 @@ public class SpellData : BasicAbilityData
 {
 	public DamageType DamageType = DamageType.Pure;
 	public int Damage;
+	public bool TrackMouse;
 	public Effect Effect;
 	public HitBox HitBox;
+	public float Speed;
 	public string ImagePath;
 	public string SoundPath;
 	//so it basically creates an object from prefab in a shape of a hitbox and applies damage on touch

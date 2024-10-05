@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -38,11 +37,11 @@ public class EnemyState : MonoBehaviour
 	{
 		var comp = new EffectEqualityComparer();
 
-		var ex = Effects.Find(x => comp.Equals(x, effect));
-		if(ex != null)
+		var exEff = Effects.Find(x => comp.Equals(x, effect));
+		if(exEff != null)
 		{
-			ex.Times = effect.Times;
-			ex.DurationCurrent = 0;
+			exEff.Times = effect.Times;
+			exEff.DurationCurrent = 0;
 			return false;
 		}
 		else

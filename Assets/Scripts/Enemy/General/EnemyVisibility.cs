@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyVisibility : MonoBehaviour
 {
-	public GameObject targetPlayer;
+	public GameObject targetPlayer{ get;private set;}
 	EnemyState state;
 	KnightEnemyBehaviour knight;
 
