@@ -20,7 +20,7 @@ public class T_HitBoxCreate : MonoBehaviour
 			HitBox.transform.localScale = new Vector3(size, size, size);
 			Instantiate(HitBox, gameObject.transform.position, Quaternion.identity);
 		}
-		if(Input.GetKeyUp(KeyCode.Q))
+		if(Input.GetMouseButtonUp(0))
 		{
 			SpellData spell = new SpellData()
 			{

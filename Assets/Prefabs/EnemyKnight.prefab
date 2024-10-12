@@ -120,7 +120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: -9121777910653827080}
   allyIsHere: 0
+  RoamDuration: 0
+  RoamCurrentDuration: 0
   enemyVisibility: {fileID: 6847492048716444388}
+  itself: {fileID: 0}
 --- !u!114 &6847492048716444388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,14 +157,16 @@ MonoBehaviour:
   Damage: 0
   AttackSpeed: 0
   AttackRange: 0
+  EnemyActivity: -1
   Multiplier: 0
-  Speed: 2
+  Speed: 5
   SightDistance: 10
-  moveDirection: {x: 0, y: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
   MinArea: 10
-  MaxArea: 10
+  MaxArea: 20
   Activity: 0
-  WaitTime: 2
+  WaitTimeCurrent: 2
+  WaitTime: 5
 --- !u!61 &5796913766459846950
 BoxCollider2D:
   m_ObjectHideFlags: 0
