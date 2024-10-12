@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84d9cfcc5314ed449a77e859f729fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2000
+  duration: 5
   currentDuration: 1
   Enemy: {fileID: 5708799507150202345, guid: 9861421ff4bc6954a9f24f8ae03fb29a, type: 3}
 --- !u!114 &424841966
@@ -831,14 +831,16 @@ MonoBehaviour:
   Damage: 10
   AttackSpeed: 2
   AttackRange: 3
+  EnemyActivity: 0
   Multiplier: 0
-  Speed: 3
+  Speed: 5
   SightDistance: 20
-  moveDirection: {x: 0, y: 0}
-  MinArea: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MinArea: 10
   MaxArea: 20
-  Activity: 0
-  WaitTime: 2
+  Activity: -1
+  WaitTimeCurrent: 2
+  WaitTime: 5
 --- !u!114 &1417198019
 MonoBehaviour:
   m_ObjectHideFlags: 0
