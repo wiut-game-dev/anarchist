@@ -17,8 +17,10 @@ public class EnemyState : MonoBehaviour
 	public float SightDistance;
 	public List<EffectActive> Effects;
 	public Vector2 moveDirection;
-
-
+	public float MinArea;
+	public float MaxArea;
+	public EnemyActivity Activity;
+	public float WaitTime;
 
 	void Start()
 	{
@@ -31,6 +33,11 @@ public class EnemyState : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	private void FixedUpdate()
+	{
+		
 	}
 
 	public bool AddEffect(Effect effect)
@@ -50,4 +57,14 @@ public class EnemyState : MonoBehaviour
 			return true;
 		}
 	}
+}
+
+public enum EnemyActivity
+{
+	Roaming = 0,
+	Patorlling = 1,
+	Chasing = 2,
+	Attacking = 3,
+	Searching = 4,
+	Escaping = 5
 }
