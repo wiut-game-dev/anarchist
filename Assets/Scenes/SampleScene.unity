@@ -828,7 +828,7 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 0
   Cooldown: 0
-  Damage: 10
+  Attack: 0
   AttackSpeed: 2
   AttackRange: 3
   EnemyActivity: 0
