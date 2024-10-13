@@ -1,3 +1,5 @@
+using System;
+
 using UnityEngine;
 
 public class HitboxActive : MonoBehaviour
@@ -27,7 +29,6 @@ public class HitboxActive : MonoBehaviour
 		if(Spell.TravelDistance > 0)
 		{
 			var move = Direction * Time.deltaTime * Spell.Speed;
-			Debug.Log(move.magnitude+" "+Time.deltaTime);
 			if(Spell.TrackMouse)
 			{
 				move = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - Player.transform.position).normalized * Time.deltaTime * Spell.Speed;
@@ -49,11 +50,11 @@ public class HitboxActive : MonoBehaviour
 		{
 			var state = other.gameObject.GetComponent<EnemyState>();
 			state.Health -= Spell.Damage;
-			state.AddEffect(Spell.Effect);
+			Debug.Log(state.AddEffect(Spell.Effect) + " " + other.tag);
 		}
 		catch
 		{
-			Debug.Log("NOT_ENEMY");
+			//Debug.Log("PROBABLY_NOT_ENEMY");
 		}
 	}
 }

@@ -56,7 +56,7 @@ public class EnemyBehave : MonoBehaviour
 
 	public void Roam()
 	{
-		Debug.Log("ROAM");
+		//Debug.Log("ROAM");
 		float x = Random.Range(state.MinArea, state.MaxArea);
 		float y = Random.Range(state.MinArea, state.MaxArea);
 		if(Random.Range(0, 2) == 0)

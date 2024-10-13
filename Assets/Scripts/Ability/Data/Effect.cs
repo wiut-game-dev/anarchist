@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 
-using UnityEngine;
-
 public class Effect
 {
 	public Variable VariableCurrent;
 	public int ValueCurrent;
 	public Variable VariableFinal;
 	public int ValueFinal;
-	public int Duration;//duration is time in seconds after which times are reduces and change applied
+	public float Duration;//duration is time in seconds after which times are reduces and change applied
 	public int Times;
 	// Start is called before the first frame update
+	public Effect()
+	{
+
+	}
 	public Effect(Effect effect)
 	{
 		VariableCurrent = effect.VariableCurrent;

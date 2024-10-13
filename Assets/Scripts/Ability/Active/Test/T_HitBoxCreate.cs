@@ -22,10 +22,19 @@ public class T_HitBoxCreate : MonoBehaviour
 		}
 		if(Input.GetMouseButtonUp(0))
 		{
+			Effect effect = new Effect()
+			{
+				Duration = 1f,
+				Times = 2,
+				ValueCurrent = 10,
+				ValueFinal = 20,
+				VariableCurrent = Variable.Health,
+				VariableFinal = Variable.Health,
+			};
 			SpellData spell = new SpellData()
 			{
 				Damage = 50,
-				Effect = null,
+				Effect = effect,
 				Lifetime = 2f,
 				TravelDistance = 10f,
 				HitBox = new HitBox()
