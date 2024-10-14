@@ -25,7 +25,7 @@ public class T_HitBoxCreate : MonoBehaviour
 			Effect effect = new Effect()
 			{
 				Duration = 1f,
-				Times = 2,
+				Times = 4,
 				ValueCurrent = 10,
 				ValueFinal = 20,
 				VariableCurrent = Variable.Health,
