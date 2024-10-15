@@ -107,9 +107,6 @@ public class PlayerState : ScriptableObject
 					case Variable.Health:
 						Health -= buff.Value;
 						break;
-					case Variable.Mana:
-						Mana -= buff.Value;
-						break;
 					case Variable.Attack:
 						Attack -= buff.Value;
 						break;

@@ -42,9 +42,6 @@ public class CostCompute : ScriptableObject
 			case Variable.Health:
 				baseval = state.Health;
 				break;
-			case Variable.Mana:
-				baseval = state.Mana;
-				break;
 			case Variable.Attack:
 				baseval = state.Attack;
 				break;
@@ -75,9 +72,6 @@ public class CostCompute : ScriptableObject
 		{
 			case Variable.Health:
 				baseval = state.Health;
-				break;
-			case Variable.Mana:
-				baseval = state.Mana;
 				break;
 			case Variable.Attack:
 				baseval = state.Attack;
