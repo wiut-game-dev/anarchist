@@ -7,8 +7,6 @@ public class CostCompute : ScriptableObject
 	public PlayerState state;
 	public int Compute(SpellData data)
 	{
-		if(data is SpellData)
-			return -1;
 		double cost = 0;
 		#region Area
 		float HitBoxArea = 0;
@@ -25,12 +23,12 @@ public class CostCompute : ScriptableObject
 		#region Effect
 		var effect = data.Effect;
 		double effcost = 0;
-		effcost += effect.ValueCurrent / effect.Duration;
+		effcost += effect.ValueCurrent / effect.Duration * effect.Times;
 		effcost += effect.ValueFinal / effect.Duration / effect.Times;
 		effcost *= HitBoxArea * 0.5f;
 		#endregion Effect
 		cost += effcost;
-		return (int)(Math.Round(cost*2*Math.Sqrt(data.Lifetime)));
+		return (int)(Math.Round(cost * 2 * Math.Sqrt(data.Lifetime)));
 	}
 
 	public int Compute(BuffData data)
@@ -49,7 +47,7 @@ public class CostCompute : ScriptableObject
 				baseval = state.AttackSpeed;
 				break;
 			case Variable.ManaRecovery:
-				baseval = state.ManaRecovery/2f;
+				baseval = state.ManaRecovery / 4f;
 				break;
 			case Variable.MaxHealth:
 				baseval = state.MaxHealth / 3f;

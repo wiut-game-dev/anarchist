@@ -76,7 +76,6 @@ public class EnemyState : MonoBehaviour
 							break;
 					}
 					toremove.Add(Effects.IndexOf(effect));
-					continue;
 				}
 				switch(effect.VariableCurrent)
 				{
