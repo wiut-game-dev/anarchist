@@ -43,15 +43,6 @@ public class EnemyBehave : MonoBehaviour
 
 	public void Update()
 	{
-		if(state.Activity == EnemyActivity.Idle)
-		{
-			state.WaitTimeCurrent -= Time.deltaTime;
-			if(state.WaitTimeCurrent <= 0)
-			{
-				state.Activity = EnemyActivity.Roaming;
-				Roam();
-			}
-		}
 	}
 
 	public void Roam()
