@@ -30,7 +30,7 @@ public class AbilityCreate : MonoBehaviour
 				SpellData spell = new SpellData()
 				{
 					SoundPath = data.SpellSoundPath,
-					Speed = data.SpellSpeed,
+					Speed = data.ProjectileSpeed,
 					Damage = data.SpellDamage,
 					Cost = 0,
 					DamageType = data.SpellDamageType,
@@ -64,7 +64,7 @@ public class AbilityCreate : MonoBehaviour
 				SpellData spell = new SpellData()
 				{
 					SoundPath = data.SpellSoundPath,
-					Speed = data.SpellSpeed,
+					Speed = data.ProjectileSpeed,
 					Damage = data.SpellDamage,
 					Cost = 0,
 					DamageType = data.SpellDamageType,
@@ -72,7 +72,7 @@ public class AbilityCreate : MonoBehaviour
 					HitBox = hitbox,
 					ImagePath = data.SpellImagePath,
 					Lifetime = data.ProjectileLifeTime,
-					TrackMouse = data.SpellTrackMouse,
+					TrackMouse = data.ProjectileTrackMouse,
 					TravelDistance = data.ProjectileTravelDistance,
 				};
 				spell.Cost = computer.Compute(spell);

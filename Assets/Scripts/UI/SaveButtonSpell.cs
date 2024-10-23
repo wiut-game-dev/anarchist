@@ -1,9 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System;
-using UnityEngine.UI;
 
-public class SaveButtonProjectile : MonoBehaviour
+public class SaveButtonSpell : MonoBehaviour
 {
 
 	public TMP_Dropdown VariableCurrentDropdown;
@@ -13,17 +12,12 @@ public class SaveButtonProjectile : MonoBehaviour
 	public TMP_InputField ValueFinalInput;
 
 	public TMP_InputField DamageInput;
+
 	public TMP_InputField Radius_or_HeightInput;
 	public TMP_InputField WidthInput;
 
 	public TMP_InputField DurationInput;
-	public TMP_InputField SpeedInput;
-	public TMP_InputField LifeTimeInput;
-
 	public TMP_InputField TimesInput;
-	public TMP_InputField TravelDistanceInput;
-
-	public Toggle ToggleTrackMouse;
 
 	public AbilityTempData data;
 
@@ -98,14 +92,10 @@ public class SaveButtonProjectile : MonoBehaviour
 			data.HitBoxRadius_or_Height = int.Parse(Radius_or_HeightInput.text);
 			data.HitBoxWidth = int.Parse(WidthInput.text);
 			data.SpellEffectDuration = float.Parse(DurationInput.text);
-			data.ProjectileSpeed = float.Parse(SpeedInput.text);
-			data.ProjectileLifeTime = float.Parse(LifeTimeInput.text);
 			data.SpellEffectTimes = int.Parse(TimesInput.text);
-			data.ProjectileTravelDistance = float.Parse(TravelDistanceInput.text);
 
 			data.AbilityType = AbilityType.Spell;
-			data.ProjectileTrackMouse = ToggleTrackMouse.isOn;
-			data.SpellType = SpellType.Projectile;
+			data.SpellType = SpellType.Player;
 		}
 		catch(Exception ex)
 		{
