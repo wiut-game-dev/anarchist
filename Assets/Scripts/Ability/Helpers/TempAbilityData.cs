@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AbilityTempData : ScriptableObject
+public class TempAbilityData : ScriptableObject
 {
 	public AbilityType AbilityType;
 

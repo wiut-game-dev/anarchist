@@ -3,7 +3,7 @@ using UnityEngine;
 public class AbilityCreate : MonoBehaviour
 {
 	public PlayerState state;
-	public AbilityTempData data;
+	public TempAbilityData data;
 	public CostCompute computer;
 
 	public void Create()

@@ -19,7 +19,7 @@ public class SaveButtonSpell : MonoBehaviour
 	public TMP_InputField DurationInput;
 	public TMP_InputField TimesInput;
 
-	public AbilityTempData data;
+	public TempAbilityData data;
 
 	public TMP_Text MessageBox;
 

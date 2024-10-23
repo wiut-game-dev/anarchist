@@ -25,7 +25,7 @@ public class SaveButtonProjectile : MonoBehaviour
 
 	public Toggle ToggleTrackMouse;
 
-	public AbilityTempData data;
+	public TempAbilityData data;
 
 	public TMP_Text MessageBox;
 
