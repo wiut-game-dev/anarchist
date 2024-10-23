@@ -14428,7 +14428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31fe569fbd430f488df76a7ff782a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_renderTexture: {fileID: 8400000, guid: f9c6077bb0a459447999cd74d5a8f5b3, type: 2}
+  m_renderTexture: {fileID: 8400000, guid: a32a07e61d26e494b9c502a04a083fdf, type: 2}
   m_previewRenderTexture: {fileID: 8400000, guid: 825af885bf3e42b408b3bcb9d0b8d331, type: 2}
   m_textureSize: {x: 16, y: 16}
 --- !u!1 &1574261510
@@ -19446,8 +19446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4793d125fd8114490530b602270057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridColor_1: {r: 0, g: 0, b: 0, a: 0}
-  gridColor_2: {r: 0, g: 0, b: 0, a: 0}
+  gridColor_1: {r: 0.5058824, g: 0.5058824, b: 0.5058824, a: 0}
+  gridColor_2: {r: 0.75686276, g: 0.75686276, b: 0.75686276, a: 0}
   m_gridRenderTexture: {fileID: 8400000, guid: 3a29498607ca9444793f0d644188a058, type: 2}
 --- !u!1 &2109330178
 GameObject:
