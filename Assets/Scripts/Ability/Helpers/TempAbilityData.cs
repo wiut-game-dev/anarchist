@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+[CreateAssetMenu(menuName = "TempAbilityData", fileName = "TempAbilityData")]
 public class TempAbilityData : ScriptableObject
 {
 	public AbilityType AbilityType;
