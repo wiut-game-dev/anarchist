@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using Random = UnityEngine.Random;
+
 
 public class EnemyBehave : MonoBehaviour
 {
@@ -45,11 +45,9 @@ public class EnemyBehave : MonoBehaviour
 	{
 	}
 
-	public void Roam()
+	public void Roam(float x, float y)
 	{
 		//Debug.Log("ROAM");
-		float x = Random.Range(state.MinArea, state.MaxArea);
-		float y = Random.Range(state.MinArea, state.MaxArea);
 		if(Random.Range(0, 2) == 0)
 		{
 			x *= -1;
@@ -61,5 +59,6 @@ public class EnemyBehave : MonoBehaviour
 		}
 		state.moveDirection = new Vector3(x, y, 0);
 		state.Activity = EnemyActivity.Roaming;
+		
 	}
 }
