@@ -18,8 +18,6 @@ public class KnightEnemyBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		float x = Random.Range(state.MinArea, state.MaxArea);
-		float y = Random.Range(state.MinArea, state.MaxArea);
 
 		if (state.Activity == EnemyActivity.Idle)
 		{
@@ -27,7 +25,7 @@ public class KnightEnemyBehaviour : MonoBehaviour
 			if(state.WaitTimeCurrent <= 0)
 			{
 				state.Activity = EnemyActivity.Roaming;
-				behave.Roam(x, y);
+				behave.Roam();
 			}
 		}
 		if(enemyVisibility.targetIsVisible)

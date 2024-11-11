@@ -7,8 +7,6 @@ public class EnemyBehave : MonoBehaviour
 	public EnemyState state;
 	private GameObject[] allyEnemy;
 	public bool allyIsHere = false;
-	public float RoamDuration;
-	public float RoamCurrentDuration;
 	public EnemyVisibility enemyVisibility;
 	public GameObject itself;
 
@@ -45,20 +43,21 @@ public class EnemyBehave : MonoBehaviour
 	{
 	}
 
-	public void Roam(float x, float y)
+	public void Roam()
 	{
 		//Debug.Log("ROAM");
-		if(Random.Range(0, 2) == 0)
+		float x = Random.Range(state.MinArea, state.MaxArea);
+		float y = Random.Range(state.MinArea, state.MaxArea);
+		if (Random.Range(0, 2) == 0)
 		{
 			x *= -1;
 
 		}
-		if(Random.Range(0, 2) == 0)
+		if (Random.Range(0, 2) == 0)
 		{
 			y *= -1;
 		}
 		state.moveDirection = new Vector3(x, y, 0);
 		state.Activity = EnemyActivity.Roaming;
-		
 	}
 }

@@ -22,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
         CurrentTime += Time.deltaTime;
         if (CurrentTime > SpawnTime)
         {
-            Instantiate(Enemy, new Vector2(Random.Range(MinRangeOfSpawn, MaxRangeOfSpawn), Random.Range(MinRangeOfSpawn, MaxRangeOfSpawn)), Quaternion.identity);
+            Instantiate(Enemy, new Vector2(Random.Range(MinRangeOfSpawn+this.transform.position.x, MaxRangeOfSpawn+this.transform.position.x), Random.Range(MinRangeOfSpawn + this.transform.position.y, MaxRangeOfSpawn + this.transform.position.y)), Quaternion.identity);
             CurrentTime = 0;
         }
     }

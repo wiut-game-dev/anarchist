@@ -28,8 +28,6 @@ public class PeasantEnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Random.Range(state.MinArea, state.MaxArea);
-        float y = Random.Range(state.MinArea, state.MaxArea);
 
         behave.FindAlly();
         if (enemyVisibility.targetIsVisible && behave.allyIsHere)
@@ -39,7 +37,7 @@ public class PeasantEnemyBehaviour : MonoBehaviour
         }
         else
         {
-            behave.Roam(x, y);
+            behave.Roam();
             state.Activity = EnemyActivity.Roaming;
         }
 
