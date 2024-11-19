@@ -29,7 +29,7 @@ public class EnemyBehave : MonoBehaviour
 
 		for(int i = 0; i < allyEnemy.Length; i++)
 		{
-			Vector2 position = allyEnemy[i].transform.position;
+			Vector2 position = allyEnemy[i].transform.position - transform.position;
 			if(allyEnemy != null && allyEnemy[i] != this.gameObject && position.magnitude <= state.SightDistance)
 			{
 				allyIsHere = true;
