@@ -7,10 +7,7 @@ public class EnemyBehave : MonoBehaviour
 	public EnemyState state;
 	private GameObject[] allyEnemy;
 	public bool allyIsHere = false;
-	public float RoamDuration;
-	public float RoamCurrentDuration;
 	public EnemyVisibility enemyVisibility;
-	public GameObject itself;
 
 
 	public void FollowThePlayer()
@@ -45,7 +42,7 @@ public class EnemyBehave : MonoBehaviour
 	{
 	}
 
-	public void Roam()
+	public void GetRoamPosition()
 	{
 		//Debug.Log("ROAM");
 		float x = Random.Range(state.MinArea, state.MaxArea);
@@ -60,6 +57,32 @@ public class EnemyBehave : MonoBehaviour
 			y *= -1;
 		}
 		state.moveDirection = new Vector3(x, y, 0);
-		state.Activity = EnemyActivity.Roaming;
+	}
+
+	public void Roam() {
+		gameObject.transform.position += state.moveDirection * Time.deltaTime * state.Speed * 0.1f;
+		state.moveDirection *= (1 - Time.deltaTime * 0.1f * state.Speed);
+		if (state.moveDirection.magnitude < 1f)
+		{
+			state.Activity = EnemyActivity.Idle;
+			state.WaitTimeCurrent = state.WaitTime;
+			//Debug.Log("STOP ROAM");
+		}
+	}
+
+	public void Idle()
+	{
+		if (enemyVisibility.targetIsVisible)
+		{
+			state.Activity = EnemyActivity.Chasing;
+		}
+		else
+		{
+			state.WaitTimeCurrent -= Time.deltaTime;
+			if (state.WaitTimeCurrent <= 0)
+			{
+				state.Activity = EnemyActivity.Roaming;
+			}
+		}
 	}
 }

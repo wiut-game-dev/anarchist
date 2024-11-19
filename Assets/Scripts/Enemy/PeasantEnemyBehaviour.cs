@@ -45,9 +45,9 @@ public class PeasantEnemyBehaviour : MonoBehaviour
 				if(state.WaitTimeCurrent <= 0)
 				{
 					state.Activity = EnemyActivity.Roaming;
-					behave.Roam();
+					behave.GetRoamPosition();
 				}
-			}
+			} 
 		}
 
 	}

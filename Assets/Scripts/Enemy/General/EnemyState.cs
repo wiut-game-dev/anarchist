@@ -12,7 +12,6 @@ public class EnemyState : MonoBehaviour
 	public float Attack;
 	public float AttackSpeed;
 	public float AttackRange;
-	public EnemyActivity EnemyActivity;
 	public float Multiplier;
 	public float Speed;
 	public float SightDistance;
@@ -23,6 +22,8 @@ public class EnemyState : MonoBehaviour
 	public EnemyActivity Activity;
 	public float WaitTimeCurrent;
 	public float WaitTime = 5;
+	public EnemyBehave behave;
+
 	void Start()
 	{
 
@@ -37,14 +38,7 @@ public class EnemyState : MonoBehaviour
 		}
 		if(Activity == EnemyActivity.Roaming)
 		{
-			gameObject.transform.position += moveDirection * Time.deltaTime *Speed*0.1f;
-			moveDirection *= (1 - Time.deltaTime*0.1f*Speed);
-			if(moveDirection.magnitude<1f)
-			{
-				Activity = EnemyActivity.Idle;
-				WaitTimeCurrent = WaitTime;
-				//Debug.Log("STOP ROAM");
-			}
+			behave.Roam();
 		}
 	}
 
