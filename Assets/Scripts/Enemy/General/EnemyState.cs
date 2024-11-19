@@ -23,6 +23,7 @@ public class EnemyState : MonoBehaviour
 	public float WaitTimeCurrent;
 	public float WaitTime = 5;
 	public EnemyBehave behave;
+	public CapsuleCollider2D Collider;
 
 	void Start()
 	{
@@ -36,10 +37,7 @@ public class EnemyState : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		if(Activity == EnemyActivity.Roaming)
-		{
-			behave.Roam();
-		}
+		
 	}
 
 	void CheckEffects()

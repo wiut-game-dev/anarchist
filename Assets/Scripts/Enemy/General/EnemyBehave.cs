@@ -14,9 +14,8 @@ public class EnemyBehave : MonoBehaviour
 	{
 		transform.position = Vector2.MoveTowards(this.transform.position, enemyVisibility.targetPlayer.transform.position, state.Speed * Time.deltaTime);
 		Vector2 direction = (enemyVisibility.targetPlayer.transform.position - transform.position).normalized;
-		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-		transform.rotation = Quaternion.Euler(angle * Vector3.forward);
+		/*float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(angle * Vector3.forward);*/
 
 	}
 
@@ -63,7 +62,7 @@ public class EnemyBehave : MonoBehaviour
 		gameObject.transform.position += state.moveDirection * Time.deltaTime * state.Speed * 0.1f;
 		state.moveDirection *= (1 - Time.deltaTime * 0.1f * state.Speed);
 		if (state.moveDirection.magnitude < 1f)
-		{
+		{	
 			state.Activity = EnemyActivity.Idle;
 			state.WaitTimeCurrent = state.WaitTime;
 			//Debug.Log("STOP ROAM");

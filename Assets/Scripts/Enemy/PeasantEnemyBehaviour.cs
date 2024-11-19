@@ -36,7 +36,12 @@ public class PeasantEnemyBehaviour : MonoBehaviour
 			{
 				if(behave.allyIsHere)
 				{
+					state.Activity = EnemyActivity.Chasing;
 					behave.FollowThePlayer();
+				}
+				else
+				{
+					state.Activity = EnemyActivity.Idle;
 				}
 			}
 			else
@@ -48,6 +53,10 @@ public class PeasantEnemyBehaviour : MonoBehaviour
 					behave.GetRoamPosition();
 				}
 			} 
+		}
+		else if (state.Activity == EnemyActivity.Roaming)
+		{
+			behave.Roam();
 		}
 
 	}

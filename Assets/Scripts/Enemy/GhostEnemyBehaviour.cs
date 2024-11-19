@@ -1,36 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
 
 public class GhostEnemyBehaviour : MonoBehaviour
 {
 
-	public EnemyVisibility enemyVisibility;
-	public EnemyBehave behave;
-	public EnemyState state;
-	public Rigidbody2D rb;
+    public EnemyVisibility enemyVisibility;
+    public EnemyBehave behave;
+    public EnemyState state;
+    public Rigidbody2D rb;
 
-	// Start is called before the first frame update
-	void Start()
-	{
+    // Start is called before the first frame update
+    void Start()
+    {
 
-	}
+    }
 
-	// Update is called once per frame
-	void Update()
-	{
-		switch (state.Activity)
-		{
-			case EnemyActivity.Idle:
-				behave.Idle();
-				break;
-			case EnemyActivity.Roaming:
-				behave.GetRoamPosition();
-				break;
-			case EnemyActivity.Chasing:
-				behave.FollowThePlayer();
-				break;
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        if (state.Activity == EnemyActivity.Idle)
+        {
+            if (enemyVisibility.targetIsVisible)
+            {
+                /*behave.FollowThePlayer();*/ //instead instant attack
+            }
+            else
+            {
+                state.WaitTimeCurrent -= Time.deltaTime;
+                if (state.WaitTimeCurrent <= 0)
+                {
+                    state.Activity = EnemyActivity.Roaming;
+                    behave.GetRoamPosition();
+                }
+            }
+        }
+        else if (state.Activity == EnemyActivity.Roaming)
+        {
+            behave.Roam();
+        }
+    }
 }

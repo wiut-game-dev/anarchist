@@ -1167,6 +1167,7 @@ MonoBehaviour:
   behave: {fileID: 1920092019}
   state: {fileID: 1920092020}
   rb: {fileID: 1920092017}
+  capsule: {fileID: 1920092022}
 --- !u!70 &1920092022
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
