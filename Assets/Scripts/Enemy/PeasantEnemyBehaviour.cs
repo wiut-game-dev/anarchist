@@ -5,11 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PeasantEnemyBehaviour : MonoBehaviour
+public class PeasantEnemyBehaviour : EnemyBehave
 {
-	public EnemyState state;
-	public EnemyVisibility enemyVisibility;
-	public EnemyBehave behave;
 	public Rigidbody2D rb;
 
 
@@ -26,10 +23,10 @@ public class PeasantEnemyBehaviour : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	public override void Update()
 	{
 
-		behave.FindAlly();
+		FindAlly();
 		if(state.Activity == EnemyActivity.Idle)
 		{
 			if(enemyVisibility.targetIsVisible)
@@ -37,7 +34,7 @@ public class PeasantEnemyBehaviour : MonoBehaviour
 				if(enemyVisibility.allyIsHere)
 				{
 					state.Activity = EnemyActivity.Chasing;
-					behave.FollowThePlayer();
+					FollowThePlayer();
 				}
 				else
 				{
@@ -50,25 +47,14 @@ public class PeasantEnemyBehaviour : MonoBehaviour
 				if(state.WaitTimeCurrent <= 0)
 				{
 					state.Activity = EnemyActivity.Roaming;
-					behave.GetRoamPosition();
+					GetRoamPosition();
 				}
 			} 
 		}
 		else if (state.Activity == EnemyActivity.Roaming)
 		{
-			behave.Roam();
+			Roam();
 		}
 
 	}
-
-	private void FixedUpdate()
-	{
-
-	}
-
-
-
-
-
-
 }
