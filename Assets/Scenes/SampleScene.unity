@@ -684,7 +684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1417198014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -781,7 +781,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -826,6 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad94e96adaa71440ac44d493e0e2e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IdleSize: 0
   Health: 100
   MaxHealth: 0
   Cooldown: 0
@@ -834,7 +835,7 @@ MonoBehaviour:
   AttackRange: 3
   Multiplier: 0
   Speed: 5
-  SightDistance: 20
+  SightDistance: 10
   moveDirection: {x: 0, y: 0, z: 0}
   MinArea: 10
   MaxArea: 20
@@ -842,8 +843,6 @@ MonoBehaviour:
   WaitTimeCurrent: 2
   WaitTime: 5
   Collider: {fileID: 1417198016}
-  AttackSize: {x: 0, y: 0}
-  IdleSize: {x: 0, y: 0}
 --- !u!114 &1417198019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: 1417198018}
   enemyVisibility: {fileID: 1417198020}
-  behave: {fileID: 1417198022}
+  playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
   rb: {fileID: 1417198017}
 --- !u!114 &1417198020
 MonoBehaviour:
@@ -888,7 +887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: {fileID: 1417198018}
-  allyIsHere: 0
   enemyVisibility: {fileID: 1417198020}
   playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
 --- !u!1 &1917741388
@@ -996,7 +994,7 @@ GameObject:
   - component: {fileID: 1920092018}
   m_Layer: 0
   m_Name: GhostEnemy
-  m_TagString: Untagged
+  m_TagString: AllyEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1122,6 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad94e96adaa71440ac44d493e0e2e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IdleSize: 0.5
   Health: 100
   MaxHealth: 110
   Cooldown: 0
@@ -1130,7 +1129,7 @@ MonoBehaviour:
   AttackRange: 1
   Multiplier: 0
   Speed: 2
-  SightDistance: 20
+  SightDistance: 50
   moveDirection: {x: 0, y: 0, z: 0}
   MinArea: 5
   MaxArea: 10
@@ -1138,8 +1137,6 @@ MonoBehaviour:
   WaitTimeCurrent: 0
   WaitTime: 5
   Collider: {fileID: 1920092022}
-  AttackSize: {x: 0, y: 0}
-  IdleSize: {x: 0.2647059, y: 0.5}
 --- !u!114 &1920092021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,9 +1150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: {fileID: 1920092020}
-  allyIsHere: 0
   enemyVisibility: {fileID: 1920092018}
-  playerState: {fileID: 0}
+  playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
   rb: {fileID: 1920092017}
 --- !u!70 &1920092022
 CapsuleCollider2D:
