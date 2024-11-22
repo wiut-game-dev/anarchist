@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e5b263f920ed4449eb49c3054b91a1, type: 3}
   m_Name: PlayerState
   m_EditorClassIdentifier: 
-  Health: 0
+  HitBoxCircle: {fileID: 0}
+  HitBoxSquare: {fileID: 0}
+  Health: 10
   MaxHealth: 0
   Mana: 0
   MaxMana: 0

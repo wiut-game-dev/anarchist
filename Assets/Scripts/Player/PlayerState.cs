@@ -30,7 +30,7 @@ public class PlayerState : ScriptableObject
 	public float Speed;
 	void Start()
 	{
-
+		Health = 10;
 	}
 
 	public void AddAbility(SpellData spell)

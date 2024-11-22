@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyVisibility : MonoBehaviour
 {
 	public GameObject targetPlayer{ get;private set;}
+	public bool allyIsHere = false;
 	EnemyState state;
 
 	[Range(0f, 360f)]

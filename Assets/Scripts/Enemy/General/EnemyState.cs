@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyState : MonoBehaviour
 {
-	public bool LineOfSight; //what is this?
+	public float IdleSize;
 	public float Health;
 	public float MaxHealth;
 	public float Cooldown;
@@ -22,7 +22,6 @@ public class EnemyState : MonoBehaviour
 	public EnemyActivity Activity;
 	public float WaitTimeCurrent;
 	public float WaitTime = 5;
-	public EnemyBehave behave;
 	public CapsuleCollider2D Collider;
 
 	void Start()

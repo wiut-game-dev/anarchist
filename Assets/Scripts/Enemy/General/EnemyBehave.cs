@@ -8,9 +8,10 @@ public class EnemyBehave : MonoBehaviour
 	private GameObject[] allyEnemy;
 	public bool allyIsHere = false;
 	public EnemyVisibility enemyVisibility;
+	public PlayerState playerState;
 
 
-	public void FollowThePlayer()
+	public virtual void FollowThePlayer()
 	{
 		transform.position = Vector2.MoveTowards(this.transform.position, enemyVisibility.targetPlayer.transform.position, state.Speed * Time.deltaTime);
 		Vector2 direction = (enemyVisibility.targetPlayer.transform.position - transform.position).normalized;
@@ -37,7 +38,7 @@ public class EnemyBehave : MonoBehaviour
 		}
 	}
 
-	public void Update()
+	public virtual void Update()
 	{
 	}
 
@@ -69,18 +70,40 @@ public class EnemyBehave : MonoBehaviour
 		}
 	}
 
-	public void Idle()
+	//public void Idle()
+	//{
+	//	if (enemyVisibility.targetIsVisible)
+	//	{
+	//		state.Activity = EnemyActivity.Chasing;
+	//	}
+	//	else
+	//	{
+	//		state.WaitTimeCurrent -= Time.deltaTime;
+	//		if (state.WaitTimeCurrent <= 0)
+	//		{
+	//			state.Activity = EnemyActivity.Roaming;
+	//		}
+	//	}
+	//}
+
+	public void AttackEnter()
 	{
-		if (enemyVisibility.targetIsVisible)
+		state.Activity = EnemyActivity.Attacking;
+		state.Collider.size = state.Collider.size.normalized * state.AttackRange;
+	}
+
+	public void AttackQuit()
+	{
+		state.Activity = EnemyActivity.Idle;
+		state.Collider.size = state.Collider.size.normalized * state.IdleSize;
+	}
+	public virtual void OnTriggerStay2D(Collider2D other)
+	{
+		if (state.Activity == EnemyActivity.Attacking)
 		{
-			state.Activity = EnemyActivity.Chasing;
-		}
-		else
-		{
-			state.WaitTimeCurrent -= Time.deltaTime;
-			if (state.WaitTimeCurrent <= 0)
+			if (!(other is null) && other.gameObject.tag == "PLAYER")
 			{
-				state.Activity = EnemyActivity.Roaming;
+				playerState.Health -= state.Attack;
 			}
 		}
 	}

@@ -34,7 +34,7 @@ public class PeasantEnemyBehaviour : MonoBehaviour
 		{
 			if(enemyVisibility.targetIsVisible)
 			{
-				if(behave.allyIsHere)
+				if(enemyVisibility.allyIsHere)
 				{
 					state.Activity = EnemyActivity.Chasing;
 					behave.FollowThePlayer();
