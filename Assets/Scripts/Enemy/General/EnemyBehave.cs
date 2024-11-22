@@ -5,8 +5,6 @@ using Random = UnityEngine.Random;
 public class EnemyBehave : MonoBehaviour
 {
 	public EnemyState state;
-	private GameObject[] allyEnemy;
-	public bool allyIsHere = false;
 	public EnemyVisibility enemyVisibility;
 	public PlayerState playerState;
 
@@ -20,24 +18,6 @@ public class EnemyBehave : MonoBehaviour
 
 	}
 
-	public void FindAlly()
-	{
-		allyEnemy = GameObject.FindGameObjectsWithTag("AllyEnemy");
-
-		for(int i = 0; i < allyEnemy.Length; i++)
-		{
-			Vector2 position = allyEnemy[i].transform.position - transform.position;
-			if(allyEnemy != null && allyEnemy[i] != this.gameObject && position.magnitude <= state.SightDistance)
-			{
-				allyIsHere = true;
-			}
-			else
-			{
-				allyIsHere = false;
-			}
-		}
-	}
-
 	public virtual void Update()
 	{
 	}
@@ -48,15 +28,15 @@ public class EnemyBehave : MonoBehaviour
 		state.Activity= EnemyActivity.Roaming;
 		float x = Random.Range(state.MinArea, state.MaxArea);
 		float y = Random.Range(state.MinArea, state.MaxArea);
-		if(Random.Range(0, 2) == 0)
-		{
-			x *= -1;
+		//if(Random.Range(0, 2) == 0)
+		//{
+		//	x *= -1;
 
-		}
-		if(Random.Range(0, 2) == 0)
-		{
-			y *= -1;
-		}
+		//}
+		//if(Random.Range(0, 2) == 0)
+		//{
+		//	y *= -1;
+		//}
 		state.moveDirection = new Vector3(x, y, 0);
 	}
 

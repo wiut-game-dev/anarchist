@@ -11,6 +11,24 @@ public class EnemyVisibility : MonoBehaviour
 
 	public bool targetIsVisible = false;
 
+	public void FindAlly()
+	{
+		var allyEnemy = GameObject.FindGameObjectsWithTag("AllyEnemy");
+
+		for (int i = 0; i < allyEnemy.Length; i++)
+		{
+			Vector2 position = allyEnemy[i].transform.position - transform.position;
+			if (allyEnemy != null && allyEnemy[i] != this.gameObject && position.magnitude <= state.SightDistance)
+			{
+				allyIsHere = true;
+			}
+			else
+			{
+				allyIsHere = false;
+			}
+		}
+	}
+
 	void Start()
 	{
 		state = GetComponent<EnemyState>();
