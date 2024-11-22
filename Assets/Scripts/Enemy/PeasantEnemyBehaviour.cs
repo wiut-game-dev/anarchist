@@ -29,27 +29,27 @@ public class PeasantEnemyBehaviour : EnemyBehave
 		FindAlly();
 		if(state.Activity == EnemyActivity.Idle)
 		{
-			if(enemyVisibility.targetIsVisible)
+			state.WaitTimeCurrent -= Time.deltaTime;
+			if(state.WaitTimeCurrent <= 0)
 			{
-				if(enemyVisibility.allyIsHere)
+				state.WaitTimeCurrent = state.WaitTime;
+				if(enemyVisibility.targetIsVisible)
 				{
-					state.Activity = EnemyActivity.Chasing;
-					FollowThePlayer();
+					if(enemyVisibility.allyIsHere)
+					{
+						state.Activity = EnemyActivity.Chasing;
+						FollowThePlayer();
+					}
+					else
+					{
+						state.Activity = EnemyActivity.Idle;
+					}
 				}
 				else
 				{
-					state.Activity = EnemyActivity.Idle;
-				}
-			}
-			else
-			{
-				state.WaitTimeCurrent -= Time.deltaTime;
-				if(state.WaitTimeCurrent <= 0)
-				{
-					state.Activity = EnemyActivity.Roaming;
 					GetRoamPosition();
-				}
-			} 
+				} 
+			}
 		}
 		else if (state.Activity == EnemyActivity.Roaming)
 		{

@@ -45,6 +45,7 @@ public class EnemyBehave : MonoBehaviour
 	public void GetRoamPosition()
 	{
 		//Debug.Log("ROAM");
+		state.Activity= EnemyActivity.Roaming;
 		float x = Random.Range(state.MinArea, state.MaxArea);
 		float y = Random.Range(state.MinArea, state.MaxArea);
 		if(Random.Range(0, 2) == 0)
@@ -65,7 +66,6 @@ public class EnemyBehave : MonoBehaviour
 		if (state.moveDirection.magnitude < 1f)
 		{	
 			state.Activity = EnemyActivity.Idle;
-			state.WaitTimeCurrent = state.WaitTime;
 			//Debug.Log("STOP ROAM");
 		}
 	}
