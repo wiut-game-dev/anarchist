@@ -7,6 +7,7 @@ public class EnemyBehave : MonoBehaviour
 	public EnemyState state;
 	public EnemyVisibility enemyVisibility;
 	public PlayerState playerState;
+	public Vector2 direction;
 
 
 	public virtual void FollowThePlayer()

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PeasantEnemyBehaviour : EnemyBehave
 {
     public Rigidbody2D rb;
-
+    public Animator Movements;
 
 
     void Awake()
@@ -66,5 +66,8 @@ public class PeasantEnemyBehaviour : EnemyBehave
             }
         }
 
+        Movements.SetFloat("Horizontal", direction.x);
+        Movements.SetFloat("Vertical", direction.y);
+        Movements.SetFloat("Speed", transform.position.sqrMagnitude);
     }
 }

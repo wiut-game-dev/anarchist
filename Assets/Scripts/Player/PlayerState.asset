@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e5b263f920ed4449eb49c3054b91a1, type: 3}
   m_Name: PlayerState
   m_EditorClassIdentifier: 
-  HitBoxCircle: {fileID: 0}
-  HitBoxSquare: {fileID: 0}
+  HitBoxCircle: {fileID: 4651231460994741829, guid: 8c1c1bd59d1da1e468e4259623cf572e, type: 3}
+  HitBoxSquare: {fileID: 7955157856417924954, guid: 61a862735486979418c10dfbaca8578b, type: 3}
+  Movements: {fileID: 0}
   Health: 10
   MaxHealth: 0
   Mana: 0

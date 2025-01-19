@@ -17,7 +17,7 @@ public class T_EnemyCreate : MonoBehaviour
 		currentDuration += Time.deltaTime;
 		if (currentDuration >= duration)
 		{
-			Instantiate(Enemy, new Vector3(Random.Range(minSpawnArea, maxSpawnArea) +transform.position.x, Random.Range(minSpawnArea, maxSpawnArea) +transform.position.y, 0), Quaternion.identity);
+			Instantiate(Enemy, new Vector3(Random.Range(Random.Range(-maxSpawnArea, -minSpawnArea), Random.Range(minSpawnArea, maxSpawnArea)) +transform.position.x, Random.Range(Random.Range(-maxSpawnArea, -minSpawnArea), Random.Range(minSpawnArea, maxSpawnArea)) + transform.position.y, 0), Quaternion.identity);
 			currentDuration = 0;
 		}
 	}

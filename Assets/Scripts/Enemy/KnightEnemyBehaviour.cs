@@ -1,12 +1,9 @@
 
 using UnityEngine;
 
-public class KnightEnemyBehaviour : MonoBehaviour
+public class KnightEnemyBehaviour : EnemyBehave
 {
 
-	public EnemyVisibility enemyVisibility;
-	public EnemyBehave behave;
-	public EnemyState state;
 	public Rigidbody2D rb;
 
 	// Start is called before the first frame update
@@ -16,20 +13,44 @@ public class KnightEnemyBehaviour : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	public override void Update()
 	{
-		if(state.Activity == EnemyActivity.Idle)
+		if (state.Activity == EnemyActivity.Idle)
 		{
 			state.WaitTimeCurrent -= Time.deltaTime;
-			if(state.WaitTimeCurrent <= 0)
+			if (state.WaitTimeCurrent <= 0)
 			{
-				state.Activity = EnemyActivity.Roaming;
-				behave.Roam();
+				state.WaitTimeCurrent = state.WaitTime;
+				if (enemyVisibility.targetIsVisible)
+				{
+					state.Activity = EnemyActivity.Chasing;
+				}
+				else
+				{
+					GetRoamPosition();
+				}
 			}
 		}
-		if(enemyVisibility.targetIsVisible)
+		else if (state.Activity == EnemyActivity.Roaming)
 		{
-			behave.FollowThePlayer();
+			if (enemyVisibility.targetIsVisible)
+			{
+				state.Activity = EnemyActivity.Idle;
+				state.WaitTimeCurrent = 0;
+			}
+			Roam();
 		}
+		else if (state.Activity == EnemyActivity.Chasing)
+		{
+			if (enemyVisibility.targetIsVisible)
+			{
+				FollowThePlayer();
+			}
+			else
+			{
+				state.Activity = EnemyActivity.Idle;
+			}
+		}
+
 	}
 }
