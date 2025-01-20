@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PeasantEnemyBehaviour : EnemyBehave
+public class SkeletonEnemyBehaviour : EnemyBehave
 {
     public Rigidbody2D rb;
     public Animator Movements;
@@ -68,6 +68,6 @@ public class PeasantEnemyBehaviour : EnemyBehave
 
         Movements.SetFloat("Horizontal", direction.x);
         Movements.SetFloat("Vertical", direction.y);
-        Movements.SetFloat("Speed", transform.position.sqrMagnitude);
+        Movements.SetFloat("Speed", direction.sqrMagnitude);
     }
 }

@@ -1,8 +1,10 @@
+using System;
+
 using UnityEngine;
 
 public class EnemyVisibility : MonoBehaviour
 {
-	public GameObject targetPlayer{ get;private set;}
+	public GameObject targetPlayer { get; set; }
 	public bool allyIsHere = false;
 	EnemyState state;
 
@@ -14,17 +16,13 @@ public class EnemyVisibility : MonoBehaviour
 	public void FindAlly()
 	{
 		var allyEnemy = GameObject.FindGameObjectsWithTag("AllyEnemy");
-
-		for (int i = 0; i < allyEnemy.Length; i++)
+		allyIsHere = false;
+		for(int i = 0; i < allyEnemy.Length; i++)
 		{
 			Vector2 position = allyEnemy[i].transform.position - transform.position;
-			if (allyEnemy != null && allyEnemy[i] != this.gameObject && position.magnitude <= state.SightDistance)
+			if(allyEnemy != null && allyEnemy[i] != this.gameObject && position.magnitude <= state.SightDistance)
 			{
 				allyIsHere = true;
-			}
-			else
-			{
-				allyIsHere = false;
 			}
 		}
 	}

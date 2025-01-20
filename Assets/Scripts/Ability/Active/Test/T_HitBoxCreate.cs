@@ -33,7 +33,7 @@ public class T_HitBoxCreate : MonoBehaviour
 			};
 			SpellData spell = new SpellData()
 			{
-				Damage = 50,
+				Damage = 20,
 				Effect = effect,
 				Lifetime = 2f,
 				TravelDistance = 10f,

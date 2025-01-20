@@ -36,7 +36,7 @@ public class EnemyState : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		
+		//transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 	}
 
 	void CheckEffects()
@@ -85,7 +85,7 @@ public class EnemyState : MonoBehaviour
 				}
 			}
 		}
-		for(int i=toremove.Count-1; i>=0; i--)
+		for(int i = toremove.Count - 1; i >= 0; i--)
 		{
 			Effects.RemoveAt(toremove[i]);
 		}
@@ -118,7 +118,7 @@ public enum EnemyActivity
 {
 	Idle = -1,
 	Roaming = 0,
-	Patorlling = 1,
+	Patrolling = 1,
 	Chasing = 2,
 	Attacking = 3,
 	Searching = 4,

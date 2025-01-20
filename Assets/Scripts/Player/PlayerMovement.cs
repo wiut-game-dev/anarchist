@@ -26,6 +26,6 @@ public class PlayerMovement : MonoBehaviour
 	void FixedUpdate()
 	{
 		movement.Normalize();
-		rb.velocity = new Vector2(movement.x * state.Speed * Time.fixedDeltaTime, movement.y * state.Speed * Time.fixedDeltaTime);
+		rb.linearVelocity = new Vector2(movement.x * state.Speed * Time.fixedDeltaTime, movement.y * state.Speed * Time.fixedDeltaTime);
 	}
 }

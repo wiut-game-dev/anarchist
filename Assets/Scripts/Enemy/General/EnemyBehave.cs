@@ -7,13 +7,13 @@ public class EnemyBehave : MonoBehaviour
 	public EnemyState state;
 	public EnemyVisibility enemyVisibility;
 	public PlayerState playerState;
-	public Vector2 direction;
+	public Vector3 direction;
 
 
 	public virtual void FollowThePlayer()
 	{
-		transform.position = Vector2.MoveTowards(this.transform.position, enemyVisibility.targetPlayer.transform.position, state.Speed * Time.deltaTime);
-		Vector2 direction = (enemyVisibility.targetPlayer.transform.position - transform.position).normalized;
+		transform.position = Vector2.MoveTowards(transform.position, enemyVisibility.targetPlayer.transform.position, state.Speed * Time.deltaTime);
+		direction = (enemyVisibility.targetPlayer.transform.position - transform.position).normalized;
 		/*float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(angle * Vector3.forward);*/
 
@@ -26,27 +26,31 @@ public class EnemyBehave : MonoBehaviour
 	public void GetRoamPosition()
 	{
 		//Debug.Log("ROAM");
-		state.Activity= EnemyActivity.Roaming;
+		state.Activity = EnemyActivity.Roaming;
 		float x = Random.Range(state.MinArea, state.MaxArea);
 		float y = Random.Range(state.MinArea, state.MaxArea);
-		//if(Random.Range(0, 2) == 0)
-		//{
-		//	x *= -1;
+		if(Random.Range(0, 2) == 0)
+		{
+			x *= -1;
 
-		//}
-		//if(Random.Range(0, 2) == 0)
-		//{
-		//	y *= -1;
-		//}
+		}
+		if(Random.Range(0, 2) == 0)
+		{
+			y *= -1;
+		}
 		state.moveDirection = new Vector3(x, y, 0);
 	}
 
-	public void Roam() {
-		gameObject.transform.position += state.moveDirection * Time.deltaTime * state.Speed * 0.1f;
-		state.moveDirection *= (1 - Time.deltaTime * 0.1f * state.Speed);
-		if (state.moveDirection.magnitude < 1f)
-		{	
+	public void Roam()
+	{
+		direction=state.moveDirection.normalized*Time.deltaTime*state.Speed;
+		transform.position += direction;
+		state.moveDirection -= direction;
+		direction = direction.normalized;
+		if(state.moveDirection.magnitude < 1f)
+		{
 			state.Activity = EnemyActivity.Idle;
+			direction= Vector3.zero;
 			//Debug.Log("STOP ROAM");
 		}
 	}
@@ -80,9 +84,9 @@ public class EnemyBehave : MonoBehaviour
 	}
 	public virtual void OnTriggerStay2D(Collider2D other)
 	{
-		if (state.Activity == EnemyActivity.Attacking)
+		if(state.Activity == EnemyActivity.Attacking)
 		{
-			if (!(other is null) && other.gameObject.tag == "PLAYER")
+			if(!(other is null) && other.gameObject.tag == "PLAYER")
 			{
 				playerState.Health -= state.Attack;
 			}
