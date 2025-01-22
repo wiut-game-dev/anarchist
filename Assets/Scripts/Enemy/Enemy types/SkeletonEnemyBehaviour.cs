@@ -57,6 +57,6 @@ public class SkeletonEnemyBehaviour : EnemyBehave
 
         Movements.SetFloat("Horizontal", Direction.x);
         Movements.SetFloat("Vertical", Direction.y);
-        Movements.SetFloat("Speed", Direction.sqrMagnitude);
+        Movements.SetInteger("EnemyState", (int)state.Activity);
     }
 }
