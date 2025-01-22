@@ -8,9 +8,6 @@ public class EnemyVisibility : MonoBehaviour
 	public bool allyIsHere = false;
 	EnemyState state;
 
-	[Range(0f, 360f)]
-	public float angle;
-
 	public bool targetIsVisible = false;
 
 	public void FindAlly()
@@ -51,16 +48,5 @@ public class EnemyVisibility : MonoBehaviour
 		{
 			targetIsVisible = false;
 		}
-		//RaycastHit2D hit = Physics2D.Raycast(this.transform.position, targetPlayer.transform.position - this.transform.position, state.SightDistance);
-		//print(hit.collider);
-		//if(hit.collider.gameObject == targetPlayer)
-		//{
-		//	targetIsVisible = true;
-		//	Debug.DrawLine(transform.position, targetPlayer.transform.position, Color.green);
-		//}
-		//else
-		//{
-		//	Debug.DrawLine(transform.position, targetPlayer.transform.position, Color.red);
-		//}
 	}
 }

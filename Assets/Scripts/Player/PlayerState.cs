@@ -28,6 +28,7 @@ public class PlayerState : ScriptableObject
 	public float Attack;
 	public float AttackSpeed;
 	public float Speed;
+
 	void Start()
 	{
 		Health = 10;

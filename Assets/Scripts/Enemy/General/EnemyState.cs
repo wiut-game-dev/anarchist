@@ -16,7 +16,6 @@ public class EnemyState : MonoBehaviour
 	public float Speed;
 	public float SightDistance;
 	public List<EffectActive> Effects = new();
-	public Vector3 moveDirection;
 	public float MinArea;
 	public float MaxArea;
 	public EnemyActivity Activity;
@@ -24,10 +23,6 @@ public class EnemyState : MonoBehaviour
 	public float WaitTime = 5;
 	public CapsuleCollider2D Collider;
 
-	void Start()
-	{
-
-	}
 
 	void Update()
 	{
@@ -36,7 +31,6 @@ public class EnemyState : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		//transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 	}
 
 	void CheckEffects()
@@ -89,10 +83,6 @@ public class EnemyState : MonoBehaviour
 		{
 			Effects.RemoveAt(toremove[i]);
 		}
-	}
-	private void FixedUpdate()
-	{
-
 	}
 
 	public bool AddEffect(Effect effect)

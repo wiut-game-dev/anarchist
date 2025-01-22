@@ -7,25 +7,23 @@ public class EnemyBehave : MonoBehaviour
 	public EnemyState state;
 	public EnemyVisibility enemyVisibility;
 	public PlayerState playerState;
-	public Vector3 direction;
+	public Vector3 Direction;
+
+	public virtual void Update()
+	{
+		
+	}
 
 
 	public virtual void FollowThePlayer()
 	{
 		transform.position = Vector2.MoveTowards(transform.position, enemyVisibility.targetPlayer.transform.position, state.Speed * Time.deltaTime);
-		direction = (enemyVisibility.targetPlayer.transform.position - transform.position).normalized;
-		/*float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(angle * Vector3.forward);*/
-
+		Direction = (enemyVisibility.targetPlayer.transform.position - transform.position).normalized;
 	}
 
-	public virtual void Update()
-	{
-	}
 
 	public void GetRoamPosition()
 	{
-		//Debug.Log("ROAM");
 		state.Activity = EnemyActivity.Roaming;
 		float x = Random.Range(state.MinArea, state.MaxArea);
 		float y = Random.Range(state.MinArea, state.MaxArea);
@@ -38,38 +36,22 @@ public class EnemyBehave : MonoBehaviour
 		{
 			y *= -1;
 		}
-		state.moveDirection = new Vector3(x, y, 0);
+		Direction = new Vector3(x, y, 0);
 	}
 
 	public void Roam()
 	{
-		direction=state.moveDirection.normalized*Time.deltaTime*state.Speed;
+		var direction = Direction.normalized*Time.deltaTime*state.Speed;
 		transform.position += direction;
-		state.moveDirection -= direction;
+		Direction -= direction;
 		direction = direction.normalized;
-		if(state.moveDirection.magnitude < 1f)
+		if(Direction.magnitude < 1f)
 		{
 			state.Activity = EnemyActivity.Idle;
 			direction= Vector3.zero;
-			//Debug.Log("STOP ROAM");
 		}
 	}
 
-	//public void Idle()
-	//{
-	//	if (enemyVisibility.targetIsVisible)
-	//	{
-	//		state.Activity = EnemyActivity.Chasing;
-	//	}
-	//	else
-	//	{
-	//		state.WaitTimeCurrent -= Time.deltaTime;
-	//		if (state.WaitTimeCurrent <= 0)
-	//		{
-	//			state.Activity = EnemyActivity.Roaming;
-	//		}
-	//	}
-	//}
 
 	public void AttackEnter()
 	{

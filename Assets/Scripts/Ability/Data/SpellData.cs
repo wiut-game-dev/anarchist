@@ -7,21 +7,9 @@ public class SpellData : BasicAbilityData
 	public HitBox HitBox;
 	public float Speed;
 	public string ImagePath;
-	public string SoundPath;
-	//so it basically creates an object from prefab in a shape of a hitbox and applies damage on touch
+	public string SoundPath; //so it basically creates an object from prefab in a shape of a hitbox and applies damage on touch
 	public float Lifetime;
-	public float TravelDistance;
-	// Start is called before the first frame update
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
+	public float TravelDistance; // Start is called before the first frame update
 }
 public enum DamageType
 {

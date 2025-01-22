@@ -4,11 +4,6 @@ public class T_HitBoxLive : MonoBehaviour
 {
 	public float lifetime=0.5f;
 	public float damage = 50;
-	// Start is called before the first frame update
-	void Start()
-	{
-
-	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
