@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
 	public PlayerState state;
 	private Rigidbody2D rb;
 	public Vector2 movement;
+	public Animator Movements;
+	private void Start()
+	{
+		state.Start();
+	}
 
 	private void Awake()
 	{
@@ -15,12 +21,18 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+		state.Update();
 		movement.x = Input.GetAxisRaw("Horizontal");
 		movement.y = Input.GetAxisRaw("Vertical");
+
+		Movements.SetFloat("Horizontal", movement.x);
+		Movements.SetFloat("Vertical", movement.y);
+		Movements.SetFloat("Speed", movement.sqrMagnitude);
+
 	}
 	void FixedUpdate()
 	{
 		movement.Normalize();
-		rb.velocity = new Vector2(movement.x * state.Speed * Time.fixedDeltaTime, movement.y * state.Speed * Time.fixedDeltaTime);
+		rb.linearVelocity = new Vector2(movement.x * state.Speed * Time.fixedDeltaTime, movement.y * state.Speed * Time.fixedDeltaTime);
 	}
 }

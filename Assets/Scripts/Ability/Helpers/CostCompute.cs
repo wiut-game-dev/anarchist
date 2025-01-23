@@ -1,7 +1,7 @@
 using System;
 
 using UnityEngine;
-
+[CreateAssetMenu(menuName = "Cost Compute")]
 public class CostCompute : ScriptableObject
 {
 	public PlayerState state;

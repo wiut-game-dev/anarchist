@@ -6,11 +6,6 @@ public class T_HitBoxCreate : MonoBehaviour
 	public float size = 1f;
 	public PlayerState state;
 	public GameObject HitboxCircle;
-	// Start is called before the first frame update
-	void Start()
-	{
-
-	}
 
 	// Update is called once per frame
 	void Update()
@@ -33,7 +28,7 @@ public class T_HitBoxCreate : MonoBehaviour
 			};
 			SpellData spell = new SpellData()
 			{
-				Damage = 50,
+				Damage = 20,
 				Effect = effect,
 				Lifetime = 2f,
 				TravelDistance = 10f,

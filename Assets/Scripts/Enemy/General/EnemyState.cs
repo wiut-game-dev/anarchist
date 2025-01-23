@@ -5,28 +5,24 @@ using UnityEngine;
 
 public class EnemyState : MonoBehaviour
 {
-	public bool LineOfSight; //what is this?
+	public float IdleSize;
 	public float Health;
 	public float MaxHealth;
 	public float Cooldown;
 	public float Attack;
 	public float AttackSpeed;
 	public float AttackRange;
-	public EnemyActivity EnemyActivity;
 	public float Multiplier;
 	public float Speed;
 	public float SightDistance;
 	public List<EffectActive> Effects = new();
-	public Vector3 moveDirection;
 	public float MinArea;
 	public float MaxArea;
 	public EnemyActivity Activity;
 	public float WaitTimeCurrent;
 	public float WaitTime = 5;
-	void Start()
-	{
+	public CapsuleCollider2D Collider;
 
-	}
 
 	void Update()
 	{
@@ -34,17 +30,6 @@ public class EnemyState : MonoBehaviour
 		if(Health <= 0)
 		{
 			Destroy(gameObject);
-		}
-		if(Activity == EnemyActivity.Roaming)
-		{
-			gameObject.transform.position += moveDirection * Time.deltaTime *Speed*0.1f;
-			moveDirection *= (1 - Time.deltaTime*0.1f*Speed);
-			if(moveDirection.magnitude<1f)
-			{
-				Activity = EnemyActivity.Idle;
-				WaitTimeCurrent = WaitTime;
-				//Debug.Log("STOP ROAM");
-			}
 		}
 	}
 
@@ -94,14 +79,10 @@ public class EnemyState : MonoBehaviour
 				}
 			}
 		}
-		for(int i=toremove.Count-1; i>=0; i--)
+		for(int i = toremove.Count - 1; i >= 0; i--)
 		{
 			Effects.RemoveAt(toremove[i]);
 		}
-	}
-	private void FixedUpdate()
-	{
-
 	}
 
 	public bool AddEffect(Effect effect)
@@ -127,7 +108,7 @@ public enum EnemyActivity
 {
 	Idle = -1,
 	Roaming = 0,
-	Patorlling = 1,
+	Patrolling = 1,
 	Chasing = 2,
 	Attacking = 3,
 	Searching = 4,
