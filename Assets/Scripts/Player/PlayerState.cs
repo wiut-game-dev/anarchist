@@ -14,12 +14,12 @@ public class PlayerState : ScriptableObject
 	public GameObject HitBoxSquare;
 
 	//these two refer to unlocked abilities
-	public List<AbilityIndex> UnlockedAbilities;
+	public List<AbilityIndex> UnlockedAbilities = new();
 	public AbilityIndex ActiveAbility;
-	public List<SpellData> SpellAbilities;
-	public List<BuffData> BuffAbilities;
-	public List<TempBuffData> TempBuffAbilities;
-	public List<EffectActive> Effects;
+	public List<SpellData> SpellAbilities = new();
+	public List<BuffData> BuffAbilities = new();
+	public List<TempBuffData> TempBuffAbilities = new();
+	public List<EffectActive> Effects = new();
 	public float Health;
 	public float MaxHealth;
 	public float Mana;
@@ -29,48 +29,73 @@ public class PlayerState : ScriptableObject
 	public float AttackSpeed;
 	public float Speed;
 
-	void Start()
+	public void Start()
 	{
 		Health = 10;
+		Effect effect = new Effect()
+		{
+			Duration = 1f,
+			Times = 4,
+			ValueCurrent = 10,
+			ValueFinal = 20,
+			VariableCurrent = Variable.Health,
+			VariableFinal = Variable.Health,
+		};
+		SpellData spell = new SpellData()
+		{
+			Damage = 20,
+			Effect = effect,
+			Lifetime = 2f,
+			TravelDistance = 20f,
+			HitBox = new HitBox()
+			{
+				Radius_or_Height = 3,
+				Type = HitBoxType.Circle,
+				Width = 1,
+			},
+			Speed = 20,
+			TrackMouse = true
+		};
+		AddAbility(spell);
 	}
 
 	public void AddAbility(SpellData spell)
 	{
-		UnlockedAbilities.Add(new AbilityIndex{List = 0, Index = SpellAbilities.Count});
+		UnlockedAbilities.Add(new AbilityIndex { List = 0, Index = SpellAbilities.Count });
 		SpellAbilities.Add(spell);
 	}
 
 	public void AddAbility(BuffData spell)
 	{
-		UnlockedAbilities.Add(new AbilityIndex{List = 1, Index = BuffAbilities.Count});
+		UnlockedAbilities.Add(new AbilityIndex { List = 1, Index = BuffAbilities.Count });
 		BuffAbilities.Add(spell);
 	}
 
 	public void AddAbility(TempBuffData spell)
 	{
-		UnlockedAbilities.Add(new AbilityIndex{List = 2, Index = TempBuffAbilities.Count});
+		UnlockedAbilities.Add(new AbilityIndex { List = 2, Index = TempBuffAbilities.Count });
 		TempBuffAbilities.Add(spell);
 	}
 
 	void CheckAbilities()
 	{
-		if(Input.GetButtonDown("Q") && UnlockedAbilities.Count > 0)
+		if(Input.GetKeyDown(KeyCode.Q) && UnlockedAbilities.Count > 0)
 		{
 			ActiveAbility = UnlockedAbilities[0];
 		}
-		if(Input.GetButtonDown("E") && UnlockedAbilities.Count > 1)
+		if(Input.GetKeyDown(KeyCode.E) && UnlockedAbilities.Count > 1)
 		{
 			ActiveAbility = UnlockedAbilities[1];
 		}
-		if(Input.GetButtonDown("R") && UnlockedAbilities.Count > 2)
+		if(Input.GetKeyDown(KeyCode.R) && UnlockedAbilities.Count > 2)
 		{
 			ActiveAbility = UnlockedAbilities[2];
 		}
-		if(Input.GetButtonDown("F") && UnlockedAbilities.Count > 3)
+		if(Input.GetKeyDown(KeyCode.F) && UnlockedAbilities.Count > 3)
 		{
 			ActiveAbility = UnlockedAbilities[3];
 		}
-		if(Input.GetButtonDown("C") && UnlockedAbilities.Count > 4)
+		if(Input.GetKeyDown(KeyCode.C) && UnlockedAbilities.Count > 4)
 		{
 			ActiveAbility = UnlockedAbilities[4];
 		}
@@ -81,9 +106,10 @@ public class PlayerState : ScriptableObject
 				var spell = SpellAbilities[ActiveAbility.Index];
 				if(spell.HitBox.Type == HitBoxType.Circle)
 				{
-					var circle = Instantiate(HitBoxCircle, GameObject.FindGameObjectWithTag("Player").transform.position, Quaternion.identity);
-					circle.GetComponent<HitboxActive>().Spell = spell;
+					var circle = Instantiate(HitBoxCircle, GameObject.FindGameObjectWithTag("PLAYER").transform.position, Quaternion.identity);
+					circle.GetComponent<HitboxActive>().Spell = new SpellData(spell);
 				}
+
 				else if(spell.HitBox.Type == HitBoxType.Rectangle)
 				{
 					var square = Instantiate(HitBoxSquare, GameObject.FindGameObjectWithTag("Player").transform.position, Quaternion.identity);
@@ -149,7 +175,7 @@ public class PlayerState : ScriptableObject
 		}
 	}
 
-	void Update()
+	public void Update()
 	{
 		CheckAbilities();
 		//you can basically copy this part for enemies

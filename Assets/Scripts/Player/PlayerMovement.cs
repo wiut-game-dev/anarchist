@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D rb;
 	public Vector2 movement;
 	public Animator Movements;
+	private void Start()
+	{
+		state.Start();
+	}
+
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -15,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+		state.Update();
 		movement.x = Input.GetAxisRaw("Horizontal");
 		movement.y = Input.GetAxisRaw("Vertical");
 

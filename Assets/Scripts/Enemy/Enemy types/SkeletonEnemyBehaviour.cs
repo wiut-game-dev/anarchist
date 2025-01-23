@@ -12,7 +12,7 @@ public class SkeletonEnemyBehaviour : EnemyBehave
 
         enemyVisibility.FindAlly();
         if (state.Activity == EnemyActivity.Idle)
-        {
+          {
             state.WaitTimeCurrent -= Time.deltaTime;
             if (state.WaitTimeCurrent <= 0)
             {
