@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitBoxCircle: {fileID: 4651231460994741829, guid: 8c1c1bd59d1da1e468e4259623cf572e, type: 3}
   HitBoxSquare: {fileID: 7955157856417924954, guid: 61a862735486979418c10dfbaca8578b, type: 3}
-  Movements: {fileID: 0}
+  coster: {fileID: 0}
   Health: 10
-  MaxHealth: 0
-  Mana: 0
-  MaxMana: 0
-  ManaRecovery: 0
-  Attack: 0
-  AttackSpeed: 0
+  MaxHealth: 100
+  Mana: 104.30283
+  MaxMana: 100
+  ManaRecovery: 10
+  Attack: 10
+  AttackSpeed: 5
   Speed: 500

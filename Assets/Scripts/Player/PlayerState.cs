@@ -13,6 +13,8 @@ public class PlayerState : ScriptableObject
 	public GameObject HitBoxCircle;
 	public GameObject HitBoxSquare;
 
+	public CostCompute coster;
+
 	//these two refer to unlocked abilities
 	public List<AbilityIndex> UnlockedAbilities = new();
 	public AbilityIndex ActiveAbility;
@@ -45,17 +47,19 @@ public class PlayerState : ScriptableObject
 		{
 			Damage = 20,
 			Effect = effect,
-			Lifetime = 2f,
-			TravelDistance = 20f,
+			Lifetime = 1f,
+			TravelDistance = 10f,
 			HitBox = new HitBox()
 			{
-				Radius_or_Height = 3,
+				Radius_or_Height = 0.25f,
 				Type = HitBoxType.Circle,
 				Width = 1,
 			},
 			Speed = 20,
-			TrackMouse = true
+			TrackMouse = true,
 		};
+		spell.Cost = coster.Compute(spell);
+		Debug.Log(spell.Cost);
 		AddAbility(spell);
 	}
 
@@ -104,6 +108,10 @@ public class PlayerState : ScriptableObject
 			if(ActiveAbility.List == 0)
 			{
 				var spell = SpellAbilities[ActiveAbility.Index];
+				if(spell.Cost > Mana)
+					return;
+				else
+					Mana -= spell.Cost;
 				if(spell.HitBox.Type == HitBoxType.Circle)
 				{
 					var circle = Instantiate(HitBoxCircle, GameObject.FindGameObjectWithTag("PLAYER").transform.position, Quaternion.identity);
@@ -119,6 +127,10 @@ public class PlayerState : ScriptableObject
 			else if(ActiveAbility.List == 1)
 			{
 				var spell = BuffAbilities[ActiveAbility.Index];
+				if(spell.Cost > Mana)
+					return;
+				else
+					Mana -= spell.Cost;
 				switch(spell.Variable)
 				{
 					case Variable.Health:
@@ -147,6 +159,10 @@ public class PlayerState : ScriptableObject
 			else if(ActiveAbility.List == 2)
 			{
 				var spell = TempBuffAbilities[ActiveAbility.Index];
+				if(spell.Cost > Mana)
+					return;
+				else
+					Mana -= spell.Cost;
 				switch(spell.Variable)
 				{
 					case Variable.Health:
@@ -177,6 +193,11 @@ public class PlayerState : ScriptableObject
 
 	public void Update()
 	{
+		if(Mana < MaxMana)
+			Mana += Math.Min(ManaRecovery * Time.deltaTime, MaxMana - Mana);
+		else
+			Mana += ManaRecovery * Time.deltaTime * 0.1f;
+		Debug.Log(Mana);
 		CheckAbilities();
 		//you can basically copy this part for enemies
 		foreach(var effect in Effects)
@@ -278,7 +299,6 @@ public class PlayerState : ScriptableObject
 						break;
 				}
 			}
-			Mana += Math.Min(ManaRecovery * Time.deltaTime, MaxMana - Mana);
 		}
 	}
 }

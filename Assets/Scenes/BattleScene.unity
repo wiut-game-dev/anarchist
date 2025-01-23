@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 424841968}
   - component: {fileID: 424841967}
-  - component: {fileID: 424841966}
   - component: {fileID: 424841970}
   - component: {fileID: 424841971}
   - component: {fileID: 424841973}
@@ -141,22 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &424841966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424841963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6957d014477ca4e933313f1a64786c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HitBox: {fileID: 5756481394373724965, guid: ecf2dec964bfa05408491bb6586cce9f, type: 3}
-  size: 3
-  state: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
-  HitboxCircle: {fileID: 4651231460994741829, guid: 8c1c1bd59d1da1e468e4259623cf572e, type: 3}
 --- !u!212 &424841967
 SpriteRenderer:
   m_ObjectHideFlags: 0
