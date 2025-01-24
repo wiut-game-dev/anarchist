@@ -51,7 +51,7 @@ public class PlayerState : ScriptableObject
 			TravelDistance = 10f,
 			HitBox = new HitBox()
 			{
-				Radius_or_Height = 0.25f,
+				Radius_or_Height = 2f,
 				Type = HitBoxType.Circle,
 				Width = 1,
 			},
@@ -197,7 +197,6 @@ public class PlayerState : ScriptableObject
 			Mana += Math.Min(ManaRecovery * Time.deltaTime, MaxMana - Mana);
 		else
 			Mana += ManaRecovery * Time.deltaTime * 0.1f;
-		Debug.Log(Mana);
 		CheckAbilities();
 		//you can basically copy this part for enemies
 		foreach(var effect in Effects)
