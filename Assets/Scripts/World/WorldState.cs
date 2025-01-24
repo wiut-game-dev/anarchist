@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameState", menuName = "Scriptable Objects/GameState")]
-public class GameState : ScriptableObject
+public class WorldState : ScriptableObject
 {
     public int EnemiesKilled;
     public int EnemiesSpawned;
