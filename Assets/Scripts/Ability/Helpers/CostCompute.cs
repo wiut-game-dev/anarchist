@@ -23,9 +23,9 @@ public class CostCompute : ScriptableObject
 		if(!data.Piercing)
 			TravelArea = (float)Math.Pow(TravelArea, 1f / 2);
 		#endregion Area
-		cost += Math.Pow(HitBoxArea, 1f / 4) * data.Damage;
+		cost += Math.Pow(HitBoxArea, 1f / 4) * data.Damage+data.Lifetime;
 		Debug.Log(cost);
-		cost += Math.Pow(TravelArea, 1f / 2) * data.Damage;
+		cost += Math.Pow(TravelArea, 1f / 3) * data.Damage;
 		Debug.Log(cost);
 		#region Effect
 		var effect = data.Effect;
@@ -36,7 +36,7 @@ public class CostCompute : ScriptableObject
 		#endregion Effect
 		cost += effcost;
 		Debug.Log(cost);
-		return (int)(Math.Round(cost));
+		return (int)(Math.Round(cost/3));
 	}
 
 	public int Compute(BuffData data)

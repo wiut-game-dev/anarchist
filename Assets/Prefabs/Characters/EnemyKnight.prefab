@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allyIsHere: 0
-  angle: 180
   targetIsVisible: 0
 --- !u!61 &5796913766459846950
 BoxCollider2D:
@@ -83,7 +82,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -121,7 +120,6 @@ MonoBehaviour:
   Multiplier: 0
   Speed: 5
   SightDistance: 30
-  moveDirection: {x: 0, y: 0, z: 0}
   MinArea: 10
   MaxArea: 20
   Activity: 0
@@ -198,7 +196,7 @@ MonoBehaviour:
   state: {fileID: -9121777910653827080}
   enemyVisibility: {fileID: 6847492048716444388}
   playerState: {fileID: 0}
-  direction: {x: 0, y: 0}
+  Direction: {x: 0, y: 0, z: 0}
   rb: {fileID: 1541796998218455401}
 --- !u!114 &-679150432542487311
 MonoBehaviour:
@@ -215,7 +213,7 @@ MonoBehaviour:
   state: {fileID: -9121777910653827080}
   enemyVisibility: {fileID: 6847492048716444388}
   playerState: {fileID: 0}
-  direction: {x: 0, y: 0}
+  Direction: {x: 0, y: 0, z: 0}
 --- !u!50 &1541796998218455401
 Rigidbody2D:
   serializedVersion: 5

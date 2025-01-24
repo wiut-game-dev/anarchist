@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    public PlayerMovement target;
+    public PlayerControls target;
 
     public float distanceMultiplier;
 

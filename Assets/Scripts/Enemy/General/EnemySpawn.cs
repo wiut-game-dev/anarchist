@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class T_EnemyCreate : MonoBehaviour
+public class EnemySpawn : MonoBehaviour
 {
+	public float maxDuration=10;
+	public float minDuration=3;
 	public float duration = 5;
 	public float currentDuration = 0;
 	public float minSpawnArea;
@@ -36,6 +38,7 @@ public class T_EnemyCreate : MonoBehaviour
 			Vector3 pos = CameraPosition.position + new Vector3(x, y, 0);
 			Instantiate(Enemy, pos, Quaternion.identity);
 			currentDuration = 0;
+			duration=Random.Range(minDuration, maxDuration);
 		}
 	}
 }
