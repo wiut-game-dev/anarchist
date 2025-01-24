@@ -9,7 +9,7 @@ public class DrawingRenderer : MonoBehaviour
     private RenderTexture m_renderTexture;
     // Preview texture that we render to
     [SerializeField]
-    private RenderTexture m_previewRenderTexture = null;
+    private RenderTexture m_previewRenderTexture;
 
     [SerializeField]
     private Vector2Int m_textureSize = new(32, 32);
