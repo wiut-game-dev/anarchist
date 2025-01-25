@@ -7,4 +7,5 @@ public class WorldState : ScriptableObject
 	public int EnemiesSpawned;
 	public int EnemiesLeft;
 	public int EnemiesAlive;
+	public float MaxDistance;
 }

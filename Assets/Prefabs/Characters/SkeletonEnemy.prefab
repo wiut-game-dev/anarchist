@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1872051910610252094}
   - component: {fileID: 1051616053869694469}
   - component: {fileID: 8998136715604871439}
-  - component: {fileID: 6946989560461635676}
   - component: {fileID: 6024001382590380314}
   - component: {fileID: 7124398751651300797}
   m_Layer: 0
@@ -189,25 +188,10 @@ MonoBehaviour:
   state: {fileID: 1872051910610252094}
   enemyVisibility: {fileID: 3318209636917297864}
   playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
+  world: {fileID: 11400000, guid: 0f8be318fd285bb44be4dae632147c5a, type: 2}
   Direction: {x: 0, y: 0, z: 0}
   rb: {fileID: 6024001382590380314}
   Movements: {fileID: 7124398751651300797}
---- !u!114 &6946989560461635676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988048278484419182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4b76f0148385eb4ab6270c8db7aa108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: {fileID: 1872051910610252094}
-  enemyVisibility: {fileID: 3318209636917297864}
-  playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
-  Direction: {x: 0, y: 0, z: 0}
 --- !u!50 &6024001382590380314
 Rigidbody2D:
   serializedVersion: 5

@@ -7,7 +7,6 @@ public class CostCompute : ScriptableObject
 	public PlayerState state;
 	public int Compute(SpellData data)
 	{
-		Debug.Log($"{data.Damage}dmg {data.Lifetime}lft {data.TravelDistance}trv\n{data.Effect.ValueCurrent}vc {data.Effect.ValueFinal}vf {data.Effect.Duration}dur {data.Effect.Times}tms\n {data.HitBox.Radius_or_Height}rad {data.HitBox.Width}width");
 		double cost = 0;
 		#region Area
 		float HitBoxArea = 0;
@@ -25,9 +24,7 @@ public class CostCompute : ScriptableObject
 			TravelArea = (float)Math.Pow(TravelArea, 1f / 2);
 		#endregion Area
 		cost += Math.Pow(HitBoxArea, 1f / 4) * data.Damage + data.Lifetime;
-		Debug.Log(cost);
 		cost += Math.Pow(TravelArea, 1f / 3) * data.Damage;
-		Debug.Log(cost);
 		#region Effect
 		var effect = data.Effect;
 		double effcost = 0;
@@ -36,7 +33,6 @@ public class CostCompute : ScriptableObject
 		effcost *= Math.Pow(HitBoxArea, 1f / 2) * 0.5f;
 		#endregion Effect
 		cost += effcost;
-		Debug.Log(cost);
 		return (int)(Math.Round(cost / 3));
 	}
 
