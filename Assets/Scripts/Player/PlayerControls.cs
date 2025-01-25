@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
 	public PlayerState state;
+	public WorldState world;
 	private Rigidbody2D rb;
 	public Vector2 movement;
 	public Animator Movements;
@@ -19,6 +20,17 @@ public class PlayerControls : MonoBehaviour
 		spell.Cost = state.coster.Compute(spell);
 		Debug.Log(spell.Cost);
 		state.AddAbility(spell);
+	}
+	private void Update()
+	{
+		state.Update();
+		CheckAbilities();
+		movement.x = Input.GetAxisRaw("Horizontal");
+		movement.y = Input.GetAxisRaw("Vertical");
+
+		Movements.SetFloat("Horizontal", movement.x);
+		Movements.SetFloat("Vertical", movement.y);
+		Movements.SetFloat("Speed", movement.sqrMagnitude);
 	}
 
 	void CheckAbilities()
@@ -136,18 +148,6 @@ public class PlayerControls : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	private void Update()
-	{
-		state.Update();
-		CheckAbilities();
-		movement.x = Input.GetAxisRaw("Horizontal");
-		movement.y = Input.GetAxisRaw("Vertical");
-
-		Movements.SetFloat("Horizontal", movement.x);
-		Movements.SetFloat("Vertical", movement.y);
-		Movements.SetFloat("Speed", movement.sqrMagnitude);
-
-	}
 	void FixedUpdate()
 	{
 		movement.Normalize();

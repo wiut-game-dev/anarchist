@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: World State
   m_EditorClassIdentifier: 
   EnemiesKilled: 0
-  EnemiesSpawned: 1
+  EnemiesSpawned: 0
   EnemiesLeft: 10
-  EnemiesAlive: 1
+  EnemiesAlive: 0
   MaxDistance: 100
+  BorderX: 100
+  BorderY: 100
+  BorderCurrentX: 100
+  BorderCurrentY: 100
+  CameraThreshold: 0
