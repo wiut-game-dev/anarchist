@@ -674,6 +674,7 @@ MonoBehaviour:
   currentDuration: 4
   minSpawnArea: 5
   maxSpawnArea: 20
+  state: {fileID: 11400000, guid: 0f8be318fd285bb44be4dae632147c5a, type: 2}
   Enemy: {fileID: 5708799507150202345, guid: 9861421ff4bc6954a9f24f8ae03fb29a, type: 3}
   CameraPosition: {fileID: 645908765}
 --- !u!1 &1917741388

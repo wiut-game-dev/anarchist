@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f409dfc915324294deb6f49ed3cb5, type: 3}
   m_Name: World State
   m_EditorClassIdentifier: 
-  EnemiesKilled: 0
-  EnemiesSpawned: 0
-  EnemiesLeft: 0
+  EnemiesKilled: 10
+  EnemiesSpawned: 10
+  EnemiesLeft: 10
   EnemiesAlive: 0
