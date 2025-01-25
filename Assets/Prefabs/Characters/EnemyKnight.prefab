@@ -126,6 +126,7 @@ MonoBehaviour:
   WaitTimeCurrent: 2
   WaitTime: 5
   Collider: {fileID: 0}
+  state: {fileID: 11400000, guid: 0f8be318fd285bb44be4dae632147c5a, type: 2}
 --- !u!212 &8596240227526437468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: -9121777910653827080}
   enemyVisibility: {fileID: 6847492048716444388}
-  playerState: {fileID: 0}
+  playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
   Direction: {x: 0, y: 0, z: 0}
   rb: {fileID: 1541796998218455401}
 --- !u!114 &-679150432542487311
@@ -212,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: {fileID: -9121777910653827080}
   enemyVisibility: {fileID: 6847492048716444388}
-  playerState: {fileID: 0}
+  playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
   Direction: {x: 0, y: 0, z: 0}
 --- !u!50 &1541796998218455401
 Rigidbody2D:

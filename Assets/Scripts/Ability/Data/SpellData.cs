@@ -10,10 +10,20 @@ public class SpellData : BasicAbilityData
 	public string ImagePath;
 	public string SoundPath; //so it basically creates an object from prefab in a shape of a hitbox and applies damage on touch
 	public float Lifetime;
-	public float TravelDistance; // Start is called before the first frame update
-	public SpellData()
-	{
+	public float TravelDistance;
 
+	public SpellData(int damage, bool trackMouse, bool piercing, Effect effect, HitBox hitBox, float speed, float travelDistance, float lifetime, string imagePath = "", string soundPath = "")
+	{
+		Damage = damage;
+		TrackMouse = trackMouse;
+		Piercing = piercing;
+		Effect = effect;
+		HitBox = hitBox;
+		Speed = speed;
+		ImagePath = imagePath;
+		SoundPath = soundPath;
+		Lifetime = lifetime;
+		TravelDistance = travelDistance;
 	}
 
 	public SpellData(SpellData data)

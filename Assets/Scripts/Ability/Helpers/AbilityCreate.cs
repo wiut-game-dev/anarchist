@@ -12,69 +12,17 @@ public class AbilityCreate : MonoBehaviour
 		{
 			if(data.SpellType == SpellType.Player)
 			{
-				Effect effect = new Effect()
-				{
-					Duration = data.SpellEffectDuration,
-					Times = data.SpellEffectTimes,
-					ValueCurrent = data.SpellEffectValueCurrent,
-					ValueFinal = data.SpellEffectValueFinal,
-					VariableCurrent = data.SpellEffectVariableCurrent,
-					VariableFinal = data.SpellEffectVariableFinal
-				};
-				HitBox hitbox = new HitBox()
-				{
-					Radius_or_Height = data.HitBoxRadius_or_Height,
-					Type = data.HitBoxType,
-					Width = data.HitBoxWidth
-				};
-				SpellData spell = new SpellData()
-				{
-					SoundPath = data.SpellSoundPath,
-					Speed = data.ProjectileSpeed,
-					Damage = data.SpellDamage,
-					Cost = 0,
-					DamageType = data.SpellDamageType,
-					Effect = effect,
-					HitBox = hitbox,
-					ImagePath = data.SpellImagePath,
-					Lifetime = 0.1f,
-					TrackMouse = false,
-					TravelDistance = 0
-				};
+				Effect effect = new Effect(data.SpellEffectVariableCurrent, data.SpellEffectValueCurrent, data.SpellEffectVariableFinal, data.SpellEffectValueFinal, data.SpellEffectDuration, data.SpellEffectTimes);
+				HitBox hitbox = new HitBox(data.HitBoxType, data.HitBoxRadius_or_Height, data.HitBoxWidth);
+				SpellData spell = new SpellData(data.SpellDamage, data.ProjectileTrackMouse, false, effect, hitbox, data.ProjectileSpeed, 0, data.ProjectileLifeTime, data.SpellImagePath, data.SpellSoundPath);
 				spell.Cost = computer.Compute(spell);
 				state.AddAbility(spell);
 			}
 			else if(data.SpellType == SpellType.Projectile)
 			{
-				Effect effect = new Effect()
-				{
-					Duration = data.SpellEffectDuration,
-					Times = data.SpellEffectTimes,
-					ValueCurrent = data.SpellEffectValueCurrent,
-					ValueFinal = data.SpellEffectValueFinal,
-					VariableCurrent = data.SpellEffectVariableCurrent,
-					VariableFinal = data.SpellEffectVariableFinal
-				};
-				HitBox hitbox = new HitBox()
-				{
-					Radius_or_Height = data.HitBoxRadius_or_Height,
-					Type = data.HitBoxType,
-					Width = data.HitBoxWidth
-				};
-				SpellData spell = new SpellData()
-				{
-					SoundPath = data.SpellSoundPath,
-					Speed = data.ProjectileSpeed,
-					Damage = data.SpellDamage,
-					Cost = 0,
-					DamageType = data.SpellDamageType,
-					Effect = effect,
-					HitBox = hitbox,
-					ImagePath = data.SpellImagePath,
-					Lifetime = data.ProjectileLifeTime,
-					TrackMouse = data.ProjectileTrackMouse,
-					TravelDistance = data.ProjectileTravelDistance,
-				};
+				Effect effect = new Effect(data.SpellEffectVariableCurrent, data.SpellEffectValueCurrent, data.SpellEffectVariableFinal, data.SpellEffectValueFinal, data.SpellEffectDuration, data.SpellEffectTimes);
+				HitBox hitbox = new HitBox(data.HitBoxType, data.HitBoxRadius_or_Height, data.HitBoxWidth);
+				SpellData spell = new SpellData(data.SpellDamage, data.ProjectileTrackMouse, data.ProjectilePiercing, effect, hitbox, data.ProjectileSpeed, data.ProjectileTravelDistance, data.ProjectileLifeTime, data.SpellImagePath, data.SpellSoundPath);
 				spell.Cost = computer.Compute(spell);
 				state.AddAbility(spell);
 			}
@@ -83,24 +31,13 @@ public class AbilityCreate : MonoBehaviour
 		{
 			if(data.BuffType == BuffType.Permanent)
 			{
-				BuffData buff = new BuffData()
-				{
-					Cost = 0,
-					Value = data.BuffValue,
-					Variable = data.BuffVariable
-				};
+				BuffData buff = new BuffData(data.BuffVariable, data.BuffValue);
 				buff.Cost = computer.Compute(buff);
 				state.AddAbility(buff);
 			}
 			else if(data.BuffType == BuffType.Temporary)
 			{
-				TempBuffData buffData = new TempBuffData()
-				{
-					Cost = 0,
-					Duration = data.BuffDuration,
-					Value = data.BuffValue,
-					Variable = data.BuffVariable
-				};
+				TempBuffData buffData = new TempBuffData(data.BuffVariable, data.BuffValue, data.BuffDuration);
 				buffData.Cost = computer.Compute(buffData);
 				state.AddAbility(buffData);
 			}

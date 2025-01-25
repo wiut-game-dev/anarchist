@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allyIsHere: 0
-  angle: 0
   targetIsVisible: 0
 --- !u!70 &4764860165793899777
 CapsuleCollider2D:
@@ -113,13 +112,13 @@ MonoBehaviour:
   Multiplier: 0
   Speed: 5
   SightDistance: 10
-  moveDirection: {x: 0, y: 0, z: 0}
   MinArea: 10
   MaxArea: 20
   Activity: -1
   WaitTimeCurrent: 2
   WaitTime: 5
   Collider: {fileID: 4764860165793899777}
+  state: {fileID: 11400000, guid: 0f8be318fd285bb44be4dae632147c5a, type: 2}
 --- !u!212 &1051616053869694469
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -190,7 +189,7 @@ MonoBehaviour:
   state: {fileID: 1872051910610252094}
   enemyVisibility: {fileID: 3318209636917297864}
   playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
-  direction: {x: 0, y: 0, z: 0}
+  Direction: {x: 0, y: 0, z: 0}
   rb: {fileID: 6024001382590380314}
   Movements: {fileID: 7124398751651300797}
 --- !u!114 &6946989560461635676
@@ -208,7 +207,7 @@ MonoBehaviour:
   state: {fileID: 1872051910610252094}
   enemyVisibility: {fileID: 3318209636917297864}
   playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
-  direction: {x: 0, y: 0, z: 0}
+  Direction: {x: 0, y: 0, z: 0}
 --- !u!50 &6024001382590380314
 Rigidbody2D:
   serializedVersion: 5

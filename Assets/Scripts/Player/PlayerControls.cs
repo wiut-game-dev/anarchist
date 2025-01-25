@@ -13,31 +13,9 @@ public class PlayerControls : MonoBehaviour
 	{
 		state.Health = 100;
 		state.Mana = 100;
-		Effect effect = new Effect()
-		{
-			Duration = 1f,
-			Times = 4,
-			ValueCurrent = 10,
-			ValueFinal = 50,
-			VariableCurrent = Variable.Health,
-			VariableFinal = Variable.Health,
-		};
-		SpellData spell = new SpellData()
-		{
-			Piercing = true,
-			Damage = 20,
-			Effect = effect,
-			Lifetime = 1f,
-			TravelDistance = 10f,
-			HitBox = new HitBox()
-			{
-				Radius_or_Height = 2f,
-				Type = HitBoxType.Circle,
-				Width = 1,
-			},
-			Speed = 20,
-			TrackMouse = true,
-		};
+		Effect effect = new Effect(Variable.Health, 10, Variable.Health, 50, 1f, 4);
+		SpellData spell = new SpellData(20, true, true, effect, new HitBox(HitBoxType.Circle, 2f), 20, 10, 1);
+
 		spell.Cost = state.coster.Compute(spell);
 		Debug.Log(spell.Cost);
 		state.AddAbility(spell);

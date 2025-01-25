@@ -1,4 +1,3 @@
-using UnityEngine;
 
 public class HitBox
 {
@@ -11,9 +10,11 @@ public class HitBox
 		Radius_or_Height = hitBox.Radius_or_Height;
 		Width = hitBox.Width;
 	}
-	public HitBox()
+	public HitBox(HitBoxType type, float radius_or_height, float width = 0f)
 	{
-
+		Type = type;
+		Radius_or_Height = radius_or_height;
+		Width = width;
 	}
 }
 public enum HitBoxType

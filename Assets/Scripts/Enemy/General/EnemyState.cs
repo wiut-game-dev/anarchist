@@ -23,12 +23,15 @@ public class EnemyState : MonoBehaviour
 	public float WaitTime = 5;
 	public CapsuleCollider2D Collider;
 
+	public WorldState state;
 
 	void Update()
 	{
 		CheckEffects();
 		if(Health <= 0)
 		{
+			state.EnemiesAlive--;
+			state.EnemiesKilled++;
 			Destroy(gameObject);
 		}
 	}
