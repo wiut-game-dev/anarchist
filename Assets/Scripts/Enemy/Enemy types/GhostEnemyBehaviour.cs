@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GhostEnemyBehaviour : EnemyBehave
+public class GhostEnemyBehaviour : EnemyBehaviour
 {
 
     public Rigidbody2D rb;

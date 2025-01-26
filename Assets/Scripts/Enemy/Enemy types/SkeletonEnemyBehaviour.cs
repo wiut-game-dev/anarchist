@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkeletonEnemyBehaviour : EnemyBehave
+public class SkeletonEnemyBehaviour : EnemyBehaviour
 {
     public Rigidbody2D rb;
     public Animator Movements;

@@ -2,18 +2,29 @@ using UnityEngine;
 
 using Random = UnityEngine.Random;
 
-public class EnemyBehave : MonoBehaviour
+public class EnemyBehaviour : MonoBehaviour
 {
 	public EnemyState state;
 	public EnemyVisibility enemyVisibility;
 	public PlayerState playerState;
+	public WorldState world;
 	public Vector3 Direction;
 
 	public virtual void Update()
 	{
-		
+
 	}
 
+	private void FixedUpdate()
+	{
+		Vector2 direction = enemyVisibility.targetPlayer.transform.position - transform.position;
+		if(direction.magnitude > world.MaxDistance)
+		{
+			world.EnemiesSpawned--;
+			world.EnemiesAlive--;
+			Destroy(gameObject);
+		}
+	}
 
 	public virtual void FollowThePlayer()
 	{
@@ -41,14 +52,14 @@ public class EnemyBehave : MonoBehaviour
 
 	public void Roam()
 	{
-		var direction = Direction.normalized*Time.deltaTime*state.Speed;
+		var direction = Direction.normalized * Time.deltaTime * state.Speed;
 		transform.position += direction;
 		Direction -= direction;
 		direction = direction.normalized;
 		if(Direction.magnitude < 1f)
 		{
 			state.Activity = EnemyActivity.Idle;
-			direction= Vector3.zero;
+			direction = Vector3.zero;
 		}
 	}
 

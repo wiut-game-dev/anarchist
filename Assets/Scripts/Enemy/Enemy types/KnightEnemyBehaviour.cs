@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class KnightEnemyBehaviour : EnemyBehave
+public class KnightEnemyBehaviour : EnemyBehaviour
 {
 
 	public Rigidbody2D rb;

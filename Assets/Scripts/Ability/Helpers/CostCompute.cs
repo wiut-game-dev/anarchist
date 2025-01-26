@@ -10,6 +10,7 @@ public class CostCompute : ScriptableObject
 		double cost = 0;
 		#region Area
 		float HitBoxArea = 0;
+		float TravelArea = 0;
 		if(data.HitBox.Type == HitBoxType.Circle)
 		{
 			HitBoxArea = MathF.PI * data.HitBox.Radius_or_Height * data.HitBox.Radius_or_Height;
@@ -18,17 +19,21 @@ public class CostCompute : ScriptableObject
 		{
 			HitBoxArea = data.HitBox.Width * data.HitBox.Radius_or_Height;
 		}
+		TravelArea = data.TravelDistance * data.HitBox.Radius_or_Height;
+		if(!data.Piercing)
+			TravelArea = (float)Math.Pow(TravelArea, 1f / 2);
 		#endregion Area
-		cost += Math.Pow(HitBoxArea, 2f / 3f) * data.Damage;
+		cost += Math.Pow(HitBoxArea, 1f / 4) * data.Damage + data.Lifetime;
+		cost += Math.Pow(TravelArea, 1f / 3) * data.Damage;
 		#region Effect
 		var effect = data.Effect;
 		double effcost = 0;
-		effcost += effect.ValueCurrent / effect.Duration * effect.Times;
+		effcost += effect.ValueCurrent / effect.Duration * (effect.Times - 1);
 		effcost += effect.ValueFinal / effect.Duration / effect.Times;
-		effcost *= HitBoxArea * 0.5f;
+		effcost *= Math.Pow(HitBoxArea, 1f / 2) * 0.5f;
 		#endregion Effect
 		cost += effcost;
-		return (int)(Math.Round(cost * 2 * Math.Sqrt(data.Lifetime)));
+		return (int)(Math.Round(cost / 3));
 	}
 
 	public int Compute(BuffData data)

@@ -16,6 +16,7 @@ public class TempAbilityData : ScriptableObject
 	public int SpellDamage;
 
 	public bool ProjectileTrackMouse;
+	public bool ProjectilePiercing;
 	public float ProjectileSpeed;
 
 	public string SpellImagePath;
