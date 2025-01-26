@@ -14,6 +14,9 @@ public class PlayerState : ScriptableObject
 	public GameObject HitBoxSquare;
 
 	public CostCompute coster;
+	
+	public Bar HealthBar;
+	public Bar ManaBar;
 
 	//these two refer to unlocked abilities
 	public List<AbilityIndex> UnlockedAbilities = new();
@@ -31,9 +34,14 @@ public class PlayerState : ScriptableObject
 	public float AttackSpeed;
 	public float Speed;
 
+
+
 	public void Start()
 	{
 		Health = 10;
+		HealthBar.SetMaxValue(MaxHealth);
+		ManaBar.SetMaxValue(MaxMana);
+
 		Effect effect = new Effect()
 		{
 			Duration = 1f,
@@ -193,6 +201,9 @@ public class PlayerState : ScriptableObject
 
 	public void Update()
 	{
+		HealthBar.SetValue(Health);
+		ManaBar.SetValue(Mana);
+
 		if(Mana < MaxMana)
 			Mana += Math.Min(ManaRecovery * Time.deltaTime, MaxMana - Mana);
 		else
