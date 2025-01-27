@@ -17,7 +17,7 @@ MonoBehaviour:
   coster: {fileID: 11400000, guid: fba1860edf30b9342a5e9ac4738562d6, type: 2}
   Health: 10
   MaxHealth: 100
-  Mana: 64.52554
+  Mana: 36.580902
   MaxMana: 100
   ManaRecovery: 10
   Attack: 10

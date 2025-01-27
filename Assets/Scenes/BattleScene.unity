@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slider: {fileID: 324181241}
+  State: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
 --- !u!1 &352612358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slider: {fileID: 1952839060}
+  State: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
 --- !u!1 &1953367853
 GameObject:
   m_ObjectHideFlags: 0
