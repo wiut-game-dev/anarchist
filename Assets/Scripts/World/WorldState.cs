@@ -8,9 +8,11 @@ public class WorldState : ScriptableObject
 	public int EnemiesLeft;
 	public int EnemiesAlive;
 	public float MaxDistance;
-	public float BorderX;
-	public float BorderY;
-	public float BorderCurrentX;
-	public float BorderCurrentY;
+	public float LeftX;
+	public float RightX;
+	public float TopY;
+	public float BottomY;
+	public float StepX;
+	public float StepY;
 	public float CameraThreshold;
 }

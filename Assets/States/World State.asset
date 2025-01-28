@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesKilled: 0
   EnemiesSpawned: 0
-  EnemiesLeft: 10
+  EnemiesLeft: 100
   EnemiesAlive: 0
   MaxDistance: 100
-  BorderX: 100
-  BorderY: 100
-  BorderCurrentX: 100
-  BorderCurrentY: 100
+  LeftX: -102.4
+  RightX: 102.4
+  TopY: 102.4
+  BottomY: -102.4
+  StepX: 102.4
+  StepY: 102.4
   CameraThreshold: 0
