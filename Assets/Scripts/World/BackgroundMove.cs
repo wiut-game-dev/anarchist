@@ -7,28 +7,42 @@ public class BackgroundMove : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-
+		float x = transform.position.x, y = transform.position.y;
+		world.LeftX = x - world.StepX;
+		world.RightX = x + world.StepX;
+		world.BottomY = y - world.StepY;
+		world.TopY = y + world.StepY;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		//transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, 10);
+		//return; //that is the code to grant player magical power
 		float x = Player.transform.position.x, y = Player.transform.position.y;
-		while(x > world.BorderCurrentX)
+		if(x < world.LeftX)
 		{
-			world.BorderCurrentX += world.BorderX;
+			world.LeftX -= world.StepX;
+			world.RightX -= world.StepX;
+			transform.position += new Vector3(-world.StepX, 0, 0);
 		}
-		while(x < -world.BorderCurrentX)
+		else if(x > world.RightX)
 		{
-			world.BorderCurrentX -= world.BorderX;
+			world.LeftX += world.StepX;
+			world.RightX += world.StepX;
+			transform.position += new Vector3(world.StepX, 0, 0);
 		}
-		while(y > world.BorderCurrentY)
+		if(y < world.BottomY)
 		{
-			world.BorderCurrentY += world.BorderY;
+			world.BottomY -= world.StepY;
+			world.TopY -= world.StepY;
+			transform.position += new Vector3(0, -world.StepY, 0);
 		}
-		while(y < -world.BorderCurrentY)
+		else if(y > world.TopY)
 		{
-			world.BorderCurrentY -= world.BorderY;
+			world.BottomY += world.StepY;
+			world.TopY += world.StepY;
+			transform.position += new Vector3(0, world.StepY, 0);
 		}
 	}
 }
