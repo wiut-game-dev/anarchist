@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f409dfc915324294deb6f49ed3cb5, type: 3}
   m_Name: World State
   m_EditorClassIdentifier: 
-  EnemiesKilled: 1
-  EnemiesSpawned: 3
-  EnemiesLeft: 10
-  EnemiesAlive: 2
+  EnemiesKilled: 0
+  EnemiesSpawned: 0
+  EnemiesLeft: 100
+  EnemiesAlive: 0
   MaxDistance: 100
-  LeftX: -100
-  RightX: 100
-  TopY: 80
-  BottomY: -80
-  StepX: 100
-  StepY: 80
+  LeftX: -102.4
+  RightX: 102.4
+  TopY: 102.4
+  BottomY: -102.4
+  StepX: 102.4
+  StepY: 102.4
   CameraThreshold: 0
