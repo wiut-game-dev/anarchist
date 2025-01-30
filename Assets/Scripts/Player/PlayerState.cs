@@ -51,6 +51,7 @@ public class PlayerState : ScriptableObject
 
 	public void Update()
 	{
+
 		if(Mana < MaxMana)
 			Mana += Math.Min(ManaRecovery * Time.deltaTime, MaxMana - Mana);
 		else
