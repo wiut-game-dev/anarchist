@@ -1,20 +1,32 @@
 using UnityEngine;
 
-public class T_EnemyCreate : MonoBehaviour
+public class EnemySpawn : MonoBehaviour
 {
+	public float maxDuration = 10;
+	public float minDuration = 3;
 	public float duration = 5;
 	public float currentDuration = 0;
 	public float minSpawnArea;
 	public float maxSpawnArea;
+	public WorldState state;
 	public GameObject Enemy;
 	public Transform CameraPosition;
 
+	private void Start()
+	{
+		state.EnemiesKilled = 0;
+		state.EnemiesAlive = 0;
+		state.EnemiesSpawned = 0;
+	}
+
 	private void Update()
 	{
+		if(state.EnemiesSpawned == state.EnemiesLeft)
+			return;
 		currentDuration += Time.deltaTime;
 		if(currentDuration >= duration)
 		{
-			float x=0, y=0;
+			float x = 0, y = 0;
 			if(Random.Range(0, 2) == 0)//out by x
 			{
 				x = Random.Range(minSpawnArea, maxSpawnArea);
@@ -35,7 +47,10 @@ public class T_EnemyCreate : MonoBehaviour
 			}
 			Vector3 pos = CameraPosition.position + new Vector3(x, y, 0);
 			Instantiate(Enemy, pos, Quaternion.identity);
+			state.EnemiesSpawned++;
+			state.EnemiesAlive++;
 			currentDuration = 0;
+			duration = Random.Range(minDuration, maxDuration);
 		}
 	}
 }

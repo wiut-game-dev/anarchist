@@ -31,8 +31,6 @@ public class PlayerState : ScriptableObject
 	public float AttackSpeed;
 	public float Speed;
 
-
-
 	public void AddAbility(SpellData spell)
 	{
 		UnlockedAbilities.Add(new AbilityIndex { List = 0, Index = SpellAbilities.Count });
@@ -51,116 +49,6 @@ public class PlayerState : ScriptableObject
 		TempBuffAbilities.Add(spell);
 	}
 
-	void CheckAbilities()
-	{
-		if(Input.GetKeyDown(KeyCode.Q) && UnlockedAbilities.Count > 0)
-		{
-			ActiveAbility = UnlockedAbilities[0];
-		}
-		if(Input.GetKeyDown(KeyCode.E) && UnlockedAbilities.Count > 1)
-		{
-			ActiveAbility = UnlockedAbilities[1];
-		}
-		if(Input.GetKeyDown(KeyCode.R) && UnlockedAbilities.Count > 2)
-		{
-			ActiveAbility = UnlockedAbilities[2];
-		}
-		if(Input.GetKeyDown(KeyCode.F) && UnlockedAbilities.Count > 3)
-		{
-			ActiveAbility = UnlockedAbilities[3];
-		}
-		if(Input.GetKeyDown(KeyCode.C) && UnlockedAbilities.Count > 4)
-		{
-			ActiveAbility = UnlockedAbilities[4];
-		}
-		if(Input.GetMouseButtonUp(0))
-		{
-			if(ActiveAbility.List == 0)
-			{
-				var spell = SpellAbilities[ActiveAbility.Index];
-				if(spell.Cost > Mana)
-					return;
-				else
-					Mana -= spell.Cost;
-				if(spell.HitBox.Type == HitBoxType.Circle)
-				{
-					var circle = Instantiate(HitBoxCircle, GameObject.FindGameObjectWithTag("PLAYER").transform.position, Quaternion.identity);
-					circle.GetComponent<HitboxActive>().Spell = new SpellData(spell);
-				}
-
-				else if(spell.HitBox.Type == HitBoxType.Rectangle)
-				{
-					var square = Instantiate(HitBoxSquare, GameObject.FindGameObjectWithTag("Player").transform.position, Quaternion.identity);
-					square.GetComponent<HitboxActive>().Spell = spell;
-				}
-			}
-			else if(ActiveAbility.List == 1)
-			{
-				var spell = BuffAbilities[ActiveAbility.Index];
-				if(spell.Cost > Mana)
-					return;
-				else
-					Mana -= spell.Cost;
-				switch(spell.Variable)
-				{
-					case Variable.Health:
-						Health += spell.Value;
-						break;
-					case Variable.Attack:
-						Attack += spell.Value;
-						break;
-					case Variable.AttackSpeed:
-						AttackSpeed += spell.Value;
-						break;
-					case Variable.ManaRecovery:
-						ManaRecovery += spell.Value;
-						break;
-					case Variable.Speed:
-						Speed += spell.Value;
-						break;
-					case Variable.MaxHealth:
-						MaxHealth += spell.Value;
-						break;
-					case Variable.MaxMana:
-						MaxMana += spell.Value;
-						break;
-				}
-			}
-			else if(ActiveAbility.List == 2)
-			{
-				var spell = TempBuffAbilities[ActiveAbility.Index];
-				if(spell.Cost > Mana)
-					return;
-				else
-					Mana -= spell.Cost;
-				switch(spell.Variable)
-				{
-					case Variable.Health:
-						Health += spell.Value;
-						break;
-					case Variable.Attack:
-						Attack += spell.Value;
-						break;
-					case Variable.AttackSpeed:
-						AttackSpeed += spell.Value;
-						break;
-					case Variable.ManaRecovery:
-						ManaRecovery += spell.Value;
-						break;
-					case Variable.Speed:
-						Speed += spell.Value;
-						break;
-					case Variable.MaxHealth:
-						MaxHealth += spell.Value;
-						break;
-					case Variable.MaxMana:
-						MaxMana += spell.Value;
-						break;
-				}
-			}
-		}
-	}
-
 	public void Update()
 	{
 
@@ -168,8 +56,6 @@ public class PlayerState : ScriptableObject
 			Mana += Math.Min(ManaRecovery * Time.deltaTime, MaxMana - Mana);
 		else
 			Mana += ManaRecovery * Time.deltaTime * 0.1f;
-		Debug.Log(Mana);
-		CheckAbilities();
 		//you can basically copy this part for enemies
 		foreach(var effect in Effects)
 		{

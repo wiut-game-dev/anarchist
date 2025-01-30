@@ -51,6 +51,8 @@ public class HitboxActive : MonoBehaviour
 			var state = other.gameObject.GetComponent<EnemyState>();
 			state.Health -= Spell.Damage;
 			Debug.Log(state.AddEffect(Spell.Effect) + " " + other.tag);
+			if(!Spell.Piercing)
+				Spell.TravelDistance = 0;
 		}
 		catch
 		{

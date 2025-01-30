@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allyIsHere: 0
-  angle: 0
   targetIsVisible: 0
 --- !u!70 &8368923505373539448
 CapsuleCollider2D:
@@ -112,13 +111,13 @@ MonoBehaviour:
   Multiplier: 0
   Speed: 2
   SightDistance: 50
-  moveDirection: {x: 0, y: 0, z: 0}
   MinArea: 5
   MaxArea: 10
   Activity: -1
   WaitTimeCurrent: 0
   WaitTime: 5
   Collider: {fileID: 8368923505373539448}
+  state: {fileID: 11400000, guid: 0f8be318fd285bb44be4dae632147c5a, type: 2}
 --- !u!212 &2998044557324144580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -216,7 +215,7 @@ MonoBehaviour:
   state: {fileID: 308965874796385592}
   enemyVisibility: {fileID: 5158367247521114330}
   playerState: {fileID: 11400000, guid: 5f7375854497b4a478ce21b43a54452f, type: 2}
-  direction: {x: 0, y: 0, z: 0}
+  Direction: {x: 0, y: 0, z: 0}
   rb: {fileID: 3841427160930329378}
 --- !u!95 &7282866622455225384
 Animator:

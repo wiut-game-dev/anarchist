@@ -9,10 +9,17 @@ public class Effect
 	public float Duration;//duration is time in seconds after which times are reduces and change applied
 	public int Times;
 	// Start is called before the first frame update
-	public Effect()
-	{
 
+	public Effect(Variable variableCurrent, int valueCurrent, Variable variableFinal, int valueFinal, float duration, int times)
+	{
+		ValueCurrent = valueCurrent;
+		VariableCurrent = variableCurrent;
+		VariableFinal = variableFinal;
+		ValueFinal = valueFinal;
+		Duration = duration;
+		Times = times;
 	}
+
 	public Effect(Effect effect)
 	{
 		VariableCurrent = effect.VariableCurrent;
@@ -35,13 +42,13 @@ public enum Variable
 	Speed = 7,
 	Knockback = 8, //can be positive or negative
 }
-class EffectEqualityComparer: IEqualityComparer<Effect>
+class EffectEqualityComparer : IEqualityComparer<Effect>
 {
 	public bool Equals(Effect x, Effect y)
 	{
 		if(x == null || y == null)
 			return false;
-		return(x.Duration==y.Duration&&x.VariableCurrent==y.VariableCurrent&&x.VariableFinal==y.VariableFinal&&x.ValueCurrent==y.ValueCurrent&&x.ValueFinal==y.ValueFinal);
+		return (x.Duration == y.Duration && x.VariableCurrent == y.VariableCurrent && x.VariableFinal == y.VariableFinal && x.ValueCurrent == y.ValueCurrent && x.ValueFinal == y.ValueFinal);
 	}
 
 	public int GetHashCode(Effect obj)
