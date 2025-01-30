@@ -33,39 +33,6 @@ public class PlayerState : ScriptableObject
 
 
 
-	public void Start()
-	{
-		Health = 10;
-
-		Effect effect = new Effect()
-		{
-			Duration = 1f,
-			Times = 4,
-			ValueCurrent = 10,
-			ValueFinal = 20,
-			VariableCurrent = Variable.Health,
-			VariableFinal = Variable.Health,
-		};
-		SpellData spell = new SpellData()
-		{
-			Damage = 20,
-			Effect = effect,
-			Lifetime = 1f,
-			TravelDistance = 10f,
-			HitBox = new HitBox()
-			{
-				Radius_or_Height = 0.25f,
-				Type = HitBoxType.Circle,
-				Width = 1,
-			},
-			Speed = 20,
-			TrackMouse = true,
-		};
-		spell.Cost = coster.Compute(spell);
-		Debug.Log(spell.Cost);
-		AddAbility(spell);
-	}
-
 	public void AddAbility(SpellData spell)
 	{
 		UnlockedAbilities.Add(new AbilityIndex { List = 0, Index = SpellAbilities.Count });
