@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PlayerControls : MonoBehaviour
 		state.Health = 100;
 		state.Mana = 100;
 		Effect effect = new Effect(Variable.Health, 10, Variable.Health, 50, 1f, 4);
-		SpellData spell = new SpellData(20, true, true, effect, new HitBox(HitBoxType.Circle, 2f), 20, 10, 1);
+		SpellData spell = new SpellData(20, true, true, effect, new HitBox(HitBoxType.Circle, 2f), 20, 20, 1);
 
 		spell.Cost = state.coster.Compute(spell);
 		Debug.Log(spell.Cost);
@@ -31,6 +32,14 @@ public class PlayerControls : MonoBehaviour
 		Movements.SetFloat("Horizontal", movement.x);
 		Movements.SetFloat("Vertical", movement.y);
 		Movements.SetFloat("Speed", movement.sqrMagnitude);
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.tag == "AllyEnemy")
+		{
+			SceneManager.LoadScene("EndScene");
+		}
 	}
 
 	void CheckAbilities()
